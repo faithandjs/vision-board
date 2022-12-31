@@ -1,0 +1,22 @@
+.flip-card .child {
+  transform-style: preserve-3d;
+  transition: 0.6s 0.1s;
+}
+.flip-card .back {
+  transform: rotateY(180deg);
+  z-index: 1;
+}
+.back,
+.front {
+  backface-visibility: hidden;
+}
+.flip-card:hover .child {
+  /* transform: rotateY(180deg); */
+}
+.active.flip-card .child {
+  transform: rotateY(180deg);
+}
+
+.active .front {
+  z-index: -100;
+}
