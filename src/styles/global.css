@@ -12,11 +12,11 @@
   backface-visibility: hidden;
   transition: 0.6s 0.1s;
 }
-.flip-card:hover .child {
-  /* transform: rotateY(180deg); */
-}
+
 .active.flip-card .child {
   transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
 }
 
 .active .front {
@@ -27,3 +27,4 @@
 .active .back {
   opacity: 10;
 }
+

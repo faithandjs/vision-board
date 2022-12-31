@@ -38,7 +38,7 @@ export default function Vision({
           <img
             src={image.src}
             alt={image.alt}
-            className='absolute inset-0 w-full h-full object-cover brightness-[.65] z-10'
+            className='absolute inset-0 w-full h-full object-cover object-bottom brightness-[.65] z-10'
           />
           <div className='backdrop-blur-[2px] bg-lightWhite w-[65%] max-h-[40%] text-[#ffffff] p-3 z-20'>
             <h3 className='font-bold text-base  font-visionhead '> {title}</h3>
@@ -60,8 +60,13 @@ export default function Vision({
             </div>
             <div
               className='py-4 px-4 overflow-y-scroll  h-full'
-              style={{ height: 'calc(100% - 65px)' }}>
-              <div className=' h-full font-details text-base '>{details}</div>
+              style={{ height: 'calc(100% - 100px)' }}>
+              <div className=' h-full font-details text-base r'>
+                <div>
+                  {details}
+                  <p className=' px-6 py-2  '>"{previewText}"</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
