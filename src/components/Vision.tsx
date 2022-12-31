@@ -61,18 +61,18 @@ export default function Vision({
           }}>
           <div className='relative h-full '>
             <div
-              className='border-b  backdrop-blur-2xl'
+              className='border-b  backdrop-blur-2xl font-details '
               style={{
                 background: `linear-gradient(120deg, ${colors[0]} 0%, ${colors[1]} 100%)`,
               }}>
-              <h3 className='font-bold text-xl  font-details py-4 px-2 text-center '>
+              <h3 className='font-bold text-xl  py-4 px-2 text-center '>
                 {title}
               </h3>
             </div>
             <div
               className='py-4 px-4 overflow-y-scroll  h-full'
               style={{ height: 'calc(100% - 65px)' }}>
-              <div className=' h-full'>{details}</div>
+              <div className=' h-full font-details text-base '>{details}</div>
             </div>
           </div>
         </div>
