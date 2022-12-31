@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import '../styles/global.css';
 
 export default function Vision({
@@ -9,30 +9,21 @@ export default function Vision({
   id,
 }: visionProps) {
   const [active, setActive] = useState(-1);
-  const [colors, setColors] = useState<string[]>([]);
-  const colorsPallette1 = ['#869eb6 ', '#83917d', '#c1c1c1 ', '#dcdddf '];
-  const colorsPallette2 = [
-    '#aac9ce',
-    '#b6b4c2',
-    '#c9bbcb',
-    '#e5c1cd',
-    '#f3dbcf',
-  ];
-  // const colorsPallette2 = [
-  //   '#aac9ce',
-  //   '#b6b4c2',
-  //   '#c9bbcb',
-  //   '#e5c1cd',
-  //   '#f3dbcf',
-  // ];
 
-  useEffect(() => {
-    const getColor1 = () => Math.floor(Math.random() * 4);
-    const getColor2 = () => Math.floor(Math.random() * 5);
-    const main = getColor1();
-    const sub = getColor2();
-    setColors([colorsPallette1[main], colorsPallette2[sub]]);
-  }, []);
+  const colorsPallettePallette = [
+    ['#ccdbfd', ' #edf2fb'],
+    [' #ffb3c6', '#ffe5ec'],
+    [' #eaf2d7 ', '#fff'],
+    ['#f2ded7'],
+    ['#f8f3ef'],
+  ];
+  const color = useRef(Math.floor(Math.random() * 4));
+
+  // useEffect(() => {
+  //   const getColor1 = () => Math.floor(Math.random() * 4);
+  //   const getColor2 = () => Math.floor(Math.random() * 5);
+
+  // }, []);
 
   return (
     <div
@@ -57,14 +48,12 @@ export default function Vision({
         <div
           className='back w-full h-full shadow-md absolute inset-0 z-[-1] '
           style={{
-            background: `linear-gradient(120deg, ${colors[0]} 0%, ${colors[1]} 100%)`,
+            background: `linear-gradient(120deg, ${
+              colorsPallettePallette[color.current][1]
+            } 0%, ${colorsPallettePallette[color.current][0]} 100%)`,
           }}>
           <div className='relative h-full '>
-            <div
-              className='border-b  backdrop-blur-2xl font-details '
-              style={{
-                background: `linear-gradient(120deg, ${colors[0]} 0%, ${colors[1]} 100%)`,
-              }}>
+            <div className='border-b  backdrop-blur-2xl font-details '>
               <h3 className='font-bold text-xl  py-4 px-2 text-center '>
                 {title}
               </h3>

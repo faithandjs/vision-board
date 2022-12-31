@@ -4,6 +4,7 @@ interface visionProps {
   details: React.ReactNode;
   image: imageObj;
   id: number;
+  // color: number;
 }
 
 interface imageObj {
