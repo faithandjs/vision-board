@@ -39,7 +39,7 @@ export const data = [
         <p>
           So this year, I want to xinfinity my income starting with x5. I want
           to earn way more than 2022. 2022 was my first year earning as a dev
-          and i want more!!!!!!{' '}
+          and i want more!!!!!!
         </p>
       </div>
     ),
@@ -130,77 +130,111 @@ export const data = [
     previewText: 'I am learning to drive this year!!!!',
     bonus: 'I buy a car🌚',
   },
-
+  {
+    title: 'Read more books',
+    details: (
+      <div>
+        <p>
+          I miss when I used to read and get lost in books, i want to go back to
+          that.
+        </p>
+        <p>
+          The plan is to read 1 book per month so 12 this year. I dont want to
+          overwhelm myself because i'll also be doing a lot of growing in my
+          career so no time.
+        </p>
+        <p>I also want to read articles too.</p>
+      </div>
+    ),
+    image: {
+      src: 'https://i.pinimg.com/originals/95/db/1f/95db1f493e3cf139f1a11e08e1164b19.jpg',
+      alt: 'a bookshelf',
+    },
+    previewText: 'I want to read more books this year',
+    bonus: 'I read more than 12 books.',
+  },
   {
     title: 'Fashion collector',
     details: <div></div>,
     image: {
-      src: 'https://i.pinimg.com/564x/b8/f9/0a/b8f90af6602d68d7db4cbe0f09be0c03.jpg',
-      alt: '',
+      src: 'https://i.pinimg.com/originals/c7/4a/84/c74a8484f839f8f6f67d11e54f304b0c.png',
+      alt: 'a wall with shelves holding a bag collection',
     },
     previewText: '',
     bonus: '',
   },
+  //
   {
     title: 'personal Style',
     details: <div></div>,
     image: {
-      src: 'https://i.pinimg.com/564x/b8/f9/0a/b8f90af6602d68d7db4cbe0f09be0c03.jpg',
+      // src: 'https://i.pinimg.com/originals/00/b8/c2/00b8c2e246d04444f5c5caaebcd2417b.jpg',
+      src: 'https://i.pinimg.com/originals/61/8a/e8/618ae8261f89c43f98c3bd52c85eb414.jpg',
       alt: '',
     },
     previewText: '',
     bonus: '',
   },
+  //
   {
-    title: 'social media participant',
-    details: <div></div>,
+    title: 'participate in social media',
+    details: (
+      <div>
+        <p>
+          I miss making videos and i had fun doing it so i'm going back to it
+        </p>
+        <p>I'll start with tiktok/instagram then youtube maybe</p>
+      </div>
+    ),
     image: {
-      src: 'https://i.pinimg.com/564x/b8/f9/0a/b8f90af6602d68d7db4cbe0f09be0c03.jpg',
-      alt: '',
+      src: 'https://i.pinimg.com/originals/6c/35/6c/6c356c2ada5d480b3a28c0cf58211e7c.jpg',
+      alt: 'girl holding a camera in front of a mirror',
     },
-    previewText: '',
-    bonus: '',
+    previewText: 'i want to be a content creator',
+    bonus: 'I make money from it',
   },
   {
     title: 'personal development',
     details: <div></div>,
     image: {
-      src: 'https://i.pinimg.com/564x/b8/f9/0a/b8f90af6602d68d7db4cbe0f09be0c03.jpg',
-      alt: '',
+      src: 'https://i.pinimg.com/originals/fb/ee/43/fbee43a492be96321653baf4718088fa.jpg',
+      alt: 'mirror with text "self love baby, self love"',
+      // alt: 'girl laying down, reading and drinking maybe coffee',
     },
-    previewText: '',
+    previewText: 'I want to absolutely love myself and take care of me.',
     bonus: '',
   },
+
   {
-    title: 'read more',
+    title: 'gym bae',
     details: <div></div>,
     image: {
-      src: 'https://i.pinimg.com/564x/b8/f9/0a/b8f90af6602d68d7db4cbe0f09be0c03.jpg',
-      alt: '',
+      src: 'https://i.pinimg.com/originals/cd/74/b3/cd74b36e30016c595225e7d56294a3ba.jpg',
+      alt: 'woman with her phone in front of a mirror in th gym',
     },
-    previewText: '',
-    bonus: '',
-  },
-  {
-    title: 'gym princess',
-    details: <div></div>,
-    image: {
-      src: 'https://i.pinimg.com/564x/b8/f9/0a/b8f90af6602d68d7db4cbe0f09be0c03.jpg',
-      alt: '',
-    },
-    previewText: '',
+    previewText: 'I want to finally get the body I always wanted',
     bonus: '',
   },
   {
     title: 'health ==> 100%',
     details: <div></div>,
     image: {
-      src: 'https://i.pinimg.com/564x/b8/f9/0a/b8f90af6602d68d7db4cbe0f09be0c03.jpg',
+      src: 'https://i.pinimg.com/originals/db/e2/a5/dbe2a554a2f65430b7e1a92254760f4a.jpg',
       alt: '',
     },
-    previewText: '',
+    previewText: 'I want to improve my health',
     bonus: '',
   },
+  // {
+  //   title: '',
+  //   bonus: '',
+  //   details: <div></div>,
+  //   image: {
+  //     src: 'https://i.pinimg.com/564x/b8/f9/0a/b8f90af6602d68d7db4cbe0f09be0c03.jpg',
+  //     alt: '',
+  //   },
+  //   previewText: '',
+  // },
 ];
 
 // {
