@@ -28,8 +28,8 @@ export default function Home() {
             ? 'text-white   absolute inset-0 translate-y-[40vh]'
             : '  delay-150 ')
         }>
-        <h1 className='text-5xl font-header font-thin  '>My 2023</h1>
-        <p className='font-details font-medium text-xl pb-4'>
+        <h1 className={'font-header font-thin  text-5xl '}>My 2023</h1>
+        <p className={'font-details font-medium text-xl pb-4  '}>
           pretty intellectual with a big bunda
         </p>
       </div>
