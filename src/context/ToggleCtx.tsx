@@ -7,13 +7,26 @@ export default function ToggleProvider({
 }: {
   children: React.ReactNode;
 }) {
-  const initial = {
+  const initial: toggleCtxProps = localStorage.getItem('vision-board-states')
+    ? JSON.parse(localStorage.getItem('vision-board-states')!)
+    : {
+        flip_all: false,
+        vision_board: true,
+      };
+  const [states, setStates] = useState({
     flip_all: false,
     vision_board: true,
-  };
-  const [states, setStates] = useState(initial);
+  });
+  const { flip_all, vision_board } = states;
+
+  useEffect(() => {
+    if (vision_board && flip_all) setStates((p) => ({ ...p, flip_all: false }));
+    localStorage.setItem('vision-board-states', JSON.stringify(states));
+  }, [states]);
+
   const setting = (val: { [key: string]: boolean }) => {
     setStates((p) => ({ ...p, ...val }));
+    localStorage.setItem('vision-board-states', JSON.stringify(states));
   };
   const value = {
     states,

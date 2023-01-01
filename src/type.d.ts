@@ -1,7 +1,7 @@
 interface visionProps {
   title: string;
   bonus?: string;
-  previewText?: string;
+  // previewText?: string;
   details: React.ReactNode;
   image: imageObj;
   id: number;
@@ -20,5 +20,10 @@ interface toggle {
   name?: string;
   checked: boolean;
   disabled?: boolean;
+}
+
+interface toggleCtxProps {
+  flip_all: boolean;
+  vision_board: boolean;
 }
 

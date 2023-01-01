@@ -19,7 +19,8 @@ export default function Home() {
   return (
     <div
       className={
-        'p-10  ' + (states.vision_board ? 'vision-board' : 'not-vision-board')
+        'md:p-10  ' +
+        (states.vision_board ? 'vision-board' : 'not-vision-board')
       }>
       <div
         className={
@@ -29,12 +30,12 @@ export default function Home() {
             : '  delay-150 ')
         }>
         <h1 className={'font-header font-thin  text-5xl '}>My 2023</h1>
-        <p className={'font-details font-medium text-xl pb-4  '}>
+        <p className={'font-Alexander font-medium text-xl pb-4  '}>
           pretty intellectual with a big bunda
         </p>
       </div>
       {/* cards */}
-      <div className='cards flex justify-between child:shrink-0 flex-wrap  transition-all duration-700'>
+      <div className='cards flex justify-center child:shrink-0 flex-wrap  transition-all duration-700'>
         {data.map((item, key) => {
           return <Vision {...item} key={key} id={key} />;
         })}
