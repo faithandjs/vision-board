@@ -2,10 +2,10 @@ import React, { useEffect, useRef, useState } from 'react';
 import { useToggleCtx } from '../context/ToggleCtx';
 
 export default function Vision({
-  title,
+  // title,
   image,
   details,
-  previewText,
+  title,
   id,
   bonus,
 }: visionProps) {
@@ -19,57 +19,54 @@ export default function Vision({
     ['#f2ded7', '#f8f3ef'],
   ];
   const color = useRef(Math.floor(Math.random() * 4));
+  const { flip_all, vision_board } = states;
 
   return (
     <div
       className={
-        'flip-card m-5 hover:cursor-pointer ' +
-        (active === id ? ' active ' : ' ') +
-        (states.flip_all ? ' active ' : ' ')
+        'flip-card m-5 md:m-7 hover:cursor-pointer ' +
+        ((active === id || flip_all) && !vision_board ? ' active ' : ' ')
       }
       onClick={() => {
-        setActive((p) => (p === id ? -1 : id));
+        !flip_all && setActive((p) => (p === id ? -1 : id));
         // states.flip_all && setting({ flip_all: false });
       }}>
       <div className='child relative'>
-        <div className='front relative  w-[300px] h-[500px] rounded-lg  overflow-hidden flex items-center justify-center '>
+        <div className='front relative  md:w-[300px] md:h-[500px] w-[200px] h-[333px]  rounded-lg  overflow-hidden flex items-center justify-center '>
           <img
             src={image.src}
             alt={image.alt}
             className='absolute inset-0 w-full h-full object-cover object-bottom brightness-[.65] z-10 rounded-lg'
           />
           <div className='backdrop-blur-[2px] bg-lightWhite w-[65%] max-h-[40%] text-[#ffffff] p-3 z-20'>
-            <h3 className='font-bold text-base  font-visionhead  capitalize'>
+            <h3 className='font-bold text-base  font-Alexander capitalize'>
               {title}
             </h3>
-            <p className='py-3  font-preview'>{previewText}</p>
+            {/* <p className='py-3  font-preview'>{title}</p> */}
           </div>
         </div>
 
         <div
           className='back w-full h-full shadow-md absolute inset-0 z-[-1] '
-          style={{
-            background: `linear-gradient(120deg, ${
-              colorsPallettePallette[color.current][1]
-            } 0%, ${colorsPallettePallette[color.current][0]} 100%)`,
-            // backgroundImage: `url(${image.src})`,
-          }}>
+          style={
+            {
+              // background: `linear-gradient(120deg, ${
+              //   colorsPallettePallette[color.current][1]
+              // } 0%, ${colorsPallettePallette[color.current][0]} 100%)`,
+            }
+          }>
           <div className='relative h-full rounded-lg '>
-            <div className='border-b  backdrop-blur-2xl font-details '>
+            <div className='border-b  backdrop-blur-2xl font-Alexander '>
               <h3 className='font-bold text-xl  py-4 px-2 text-center '>
                 {title}
+                {/* {title} */}
               </h3>
             </div>
             <div
               className='py-4 px-4 overflow-y-scroll  h-full'
               style={{ height: 'calc(100% - 100px)' }}>
-              <div className=' h-full font-details text-base r'>
+              <div className=' h-full font-Alexander text-base r'>
                 <div>
-                  {previewText && (
-                    <p className=' px-6 pt-2 pb-3  font-semibold'>
-                      "{previewText}"
-                    </p>
-                  )}
                   {details}
                   {bonus && (
                     <p className='py-2'>

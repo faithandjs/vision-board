@@ -2,7 +2,6 @@ import Checkbox from './components/Checkbox';
 
 export const data = [
   {
-    title: 'Expand my Palate',
     image: {
       src: 'https://i.pinimg.com/564x/b8/f9/0a/b8f90af6602d68d7db4cbe0f09be0c03.jpg',
       alt: 'a bowl with food i dont really understand',
@@ -13,23 +12,17 @@ export const data = [
           So my current favorite food is chicke and shawarma which is quite
           basic. I want to try:
         </p>
-
-        <ul className=' '>
+        <ul className='list-[circle] '>
           {['pastrami', 'seafood'].map((item, key) => {
-            return (
-              <li key={key}>
-                <Checkbox label={item} />
-              </li>
-            );
+            return <li key={key}>{item}</li>;
           })}
         </ul>
       </div>
     ),
     bonus: 'I learn to eat onions',
-    previewText: 'I want to try more foods this year',
+    title: 'I want to try more foods this year',
   },
   {
-    title: 'xinfinity developer',
     image: {
       src: 'https://i.pinimg.com/originals/18/8a/73/188a734f6350f29eddd317ab1d3d5580.jpg',
       alt: 'a girl holding a stack of money',
@@ -43,10 +36,9 @@ export const data = [
         </p>
       </div>
     ),
-    previewText: 'I want to touch so much money that it scares me. ',
+    title: 'I want to touch so much money this year that it scares me. ',
   },
   {
-    title: 'Pretty Bitch',
     image: {
       src: 'https://i.pinimg.com/originals/91/c6/31/91c63167bab6808ea759e26c8a45f849.jpg',
       alt: 'a pretty girl with blond, long hair tilting her head',
@@ -72,17 +64,17 @@ export const data = [
                 'pelvis',
                 'butt?',
               ].map((item, key) => (
-                <li>
-                  <Checkbox label={item} key={key} />
+                <li className='list-[square]' key={key}>
+                  {item}
                 </li>
               ))}
             </ul>
           </li>
-          <li>I want to learn to make up and have a go to look</li>
+          <li>I want to learn to make up and have a go-to look</li>
         </ul>
       </div>
     ),
-    previewText: 'I want to be my prettiest and baddest self this year ',
+    title: 'I want to be my most beautiful self this year ',
   },
   {
     details: (
@@ -110,11 +102,9 @@ export const data = [
       src: '/assets/setup.jpeg',
       alt: 'pink room with devices on a table and a pretty chair; a workstation',
     },
-    title: 'Workspace',
-    previewText: 'I want an aesthetically pleasing workspace.',
+    title: 'I want an aesthetically pleasing workspace.',
   },
   {
-    title: 'Driver bae',
     details: (
       <div>
         <p>
@@ -127,11 +117,10 @@ export const data = [
       src: 'https://i.pinimg.com/originals/6f/72/13/6f72133d820f0ef56acc840faa0e33ef.png',
       alt: "a girl's hand on a steering wheel",
     },
-    previewText: 'I am learning to drive this year!!!!',
+    title: 'I am learning to drive this year!!!!',
     bonus: 'I buy a car🌚',
   },
   {
-    title: 'Read more books',
     details: (
       <div>
         <p>
@@ -150,34 +139,31 @@ export const data = [
       src: 'https://i.pinimg.com/originals/95/db/1f/95db1f493e3cf139f1a11e08e1164b19.jpg',
       alt: 'a bookshelf',
     },
-    previewText: 'I want to read more books this year',
+    title: 'I want to read more books this year',
     bonus: 'I read more than 12 books.',
   },
   {
-    title: 'Fashion collector',
     details: <div></div>,
     image: {
       src: 'https://i.pinimg.com/originals/c7/4a/84/c74a8484f839f8f6f67d11e54f304b0c.png',
       alt: 'a wall with shelves holding a bag collection',
     },
-    previewText: '',
-    bonus: '',
+    title: 'I want to buy quality pieces this year',
+    bonus: 'I buy designer piece(s)',
   },
-  //
+
   {
-    title: 'personal Style',
     details: <div></div>,
     image: {
-      // src: 'https://i.pinimg.com/originals/00/b8/c2/00b8c2e246d04444f5c5caaebcd2417b.jpg',
-      src: 'https://i.pinimg.com/originals/61/8a/e8/618ae8261f89c43f98c3bd52c85eb414.jpg',
+      src: 'https://i.pinimg.com/originals/00/b8/c2/00b8c2e246d04444f5c5caaebcd2417b.jpg',
+      // src: 'https://i.pinimg.com/originals/61/8a/e8/618ae8261f89c43f98c3bd52c85eb414.jpg',
       alt: '',
     },
-    previewText: '',
+    title: 'I want to find my personal fashion style',
     bonus: '',
   },
-  //
+
   {
-    title: 'participate in social media',
     details: (
       <div>
         <p>
@@ -190,51 +176,56 @@ export const data = [
       src: 'https://i.pinimg.com/originals/6c/35/6c/6c356c2ada5d480b3a28c0cf58211e7c.jpg',
       alt: 'girl holding a camera in front of a mirror',
     },
-    previewText: 'i want to be a content creator',
+    title: 'i want to create content on social media',
     bonus: 'I make money from it',
   },
   {
-    title: 'personal development',
     details: <div></div>,
     image: {
       src: 'https://i.pinimg.com/originals/fb/ee/43/fbee43a492be96321653baf4718088fa.jpg',
       alt: 'mirror with text "self love baby, self love"',
       // alt: 'girl laying down, reading and drinking maybe coffee',
     },
-    previewText: 'I want to absolutely love myself and take care of me.',
+    title: 'I am prioritising my growth and personal development this year',
     bonus: '',
   },
 
   {
-    title: 'gym bae',
     details: <div></div>,
     image: {
       src: 'https://i.pinimg.com/originals/cd/74/b3/cd74b36e30016c595225e7d56294a3ba.jpg',
       alt: 'woman with her phone in front of a mirror in th gym',
     },
-    previewText: 'I want to finally get the body I always wanted',
+    title: 'I finally getting the body I want',
     bonus: '',
   },
   {
-    title: 'health ==> 100%',
     details: <div></div>,
     image: {
       src: 'https://i.pinimg.com/originals/db/e2/a5/dbe2a554a2f65430b7e1a92254760f4a.jpg',
       alt: '',
     },
-    previewText: 'I want to improve my health',
+    title: 'I want to improve my health',
     bonus: '',
   },
-  // {
-  //   title: '',
-  //   bonus: '',
-  //   details: <div></div>,
-  //   image: {
-  //     src: 'https://i.pinimg.com/564x/b8/f9/0a/b8f90af6602d68d7db4cbe0f09be0c03.jpg',
-  //     alt: '',
-  //   },
-  //   previewText: '',
-  // },
+  {
+    title: 'i want to go out more and make more friends',
+    bonus: '',
+    details: <div></div>,
+    image: {
+      src: 'https://i.pinimg.com/originals/8e/2c/b5/8e2cb53fd8979537f629c810b5f6f047.jpg',
+      alt: '',
+    },
+  },
+  {
+    title: 'i want to speak conversational spanish by december',
+    bonus: '',
+    details: <div></div>,
+    image: {
+      src: 'https://i.pinimg.com/originals/b0/7c/61/b07c615cdf3a6f8b226a43410fe7c0ee.jpg',
+      alt: '',
+    },
+  },
 ];
 
 // {
@@ -245,6 +236,6 @@ export const data = [
 //     src: 'https://i.pinimg.com/564x/b8/f9/0a/b8f90af6602d68d7db4cbe0f09be0c03.jpg',
 //     alt: '',
 //   },
-//   previewText: '',
+//   title: '',
 // },
 
