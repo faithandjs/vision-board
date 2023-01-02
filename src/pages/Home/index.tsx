@@ -20,7 +20,9 @@ export default function Home() {
     <div
       className={
         'md:p-10  ' +
-        (states.vision_board ? 'vision-board' : 'not-vision-board')
+        (states.vision_board
+          ? 'vision-board '
+          : 'not-vision-board border-8 border-[#2f2f2f] border-double ')
       }>
       <div
         className={
