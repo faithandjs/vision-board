@@ -1,11 +1,11 @@
 interface visionProps {
   title: string;
   bonus?: string;
-  // previewText?: string;
   details: React.ReactNode;
   image: imageObj;
   id: number;
-  // color: number;
+  setActive: React.Dispatch<React.SetStateAction<number>>;
+  active: number;
 }
 
 interface imageObj {

@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import Vision from '../../components/Vision';
 import Toggle from '../../components/Toggle';
-import { data } from '../../data';
+import { details, details2 } from '../../data';
 
 import '../../styles/global.scss';
 import '../../styles/theme.scss';
@@ -10,8 +10,12 @@ import '../../styles/theme.scss';
 import { useToggleCtx } from '../../context/ToggleCtx';
 
 export default function Home() {
+  const password = process.env.REACT_APP_PASSWORD;
+  // const data = JSON.parse(process.env.REACT_APP_DATA!);
   const { states } = useToggleCtx();
-  const { vision_board, flip_all } = states;
+  const { vision_board } = states;
+  const [active, setActive] = useState(-1);
+  const { data, theme } = details2;
 
   useEffect(() => {
     if (vision_board) {
@@ -21,10 +25,11 @@ export default function Home() {
     }
   }, [states]);
 
+  // console.log(details, password);
   return (
     <div
       className={
-        'md:p-10  ' +
+        'md:px-6 py-10  ' +
         (states.vision_board
           ? 'vision-board '
           : 'not-vision-board border-8 border-[#2f2f2f] border-double ')
@@ -36,21 +41,21 @@ export default function Home() {
             ? 'text-white   absolute inset-0 translate-y-[40vh]'
             : '  delay-150 ')
         }>
-        <h1 className={'font-header font-thin  text-5xl '}>My 2023</h1>
-        <p className={'font-Alexander font-medium text-xl pb-4  '}>
-          pretty intellectual with a big bunda
-        </p>
+        <h1 className={'font-deraga font-thin  text-5xl '}>My 2023</h1>
+        <p className={'font-alexander font-medium text-xl pb-4  '}>{theme}</p>
       </div>
       {/* cards */}
       <div className='cards flex justify-center child:shrink-0 flex-wrap  transition-all duration-700'>
-        {data.map((item, key) => {
-          return <Vision {...item} key={key} id={key} />;
+        {data.map((item: any, key: number) => {
+          return (
+            <Vision {...{ ...item, active, setActive }} key={key} id={key} />
+          );
         })}
       </div>
 
       {/* grid */}
       <div className='grid transition-all duration-700 absolute inset-0 w-full h-screen  brightness-75'>
-        {data.map((item, key) => {
+        {data.map((item: any, key: number) => {
           return (
             <div
               className={`grid-item${key + 1}`}
