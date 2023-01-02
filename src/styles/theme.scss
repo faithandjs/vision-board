@@ -21,10 +21,9 @@
     z-index: 10;
   }
 }
-@media screen and (max-width: 770px) {
-  .vision-board {
-    height: 100vh;
-    overflow: hidden;
-  }
+
+.vision-body {
+  height: 100vh;
+  overflow: hidden;
 }
 
