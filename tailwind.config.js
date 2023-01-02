@@ -4,12 +4,12 @@ module.exports = {
   theme: {
     screens: {
       md: '770px',
+      sm: '496px',
     },
     fontFamily: {
-      visionhead: ['Rozha One', 'sans-serif'],
-      header: ['Deraga', 'sans-serif'],
-      Alexander: ['Alexander', 'sans-serif'],
-      preview: ['Cormorant Upright', 'sans-serif'],
+      deraga: ['Deraga', 'sans-serif'],
+      alexander: ['Alexander', 'sans-serif'],
+      playfair: ['Playfair Display', 'sans-serif'],
     },
     extend: {
       colors: {
