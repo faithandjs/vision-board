@@ -11,11 +11,16 @@ import { useToggleCtx } from '../../context/ToggleCtx';
 
 export default function Home() {
   const { states } = useToggleCtx();
+  const { vision_board, flip_all } = states;
+
   useEffect(() => {
-    console.log(
-      states.vision_board ? 'vision-board h-screen' : 'not-vision-board'
-    );
+    if (vision_board) {
+      document.body.classList.add('vision-body');
+    } else {
+      document.body.classList.remove('vision-body');
+    }
   }, [states]);
+
   return (
     <div
       className={
