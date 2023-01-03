@@ -1,5 +1,3 @@
-import Checkbox from './components/Checkbox';
-
 export const details = {
   theme: ' pretty intellectual with a big bunda',
   data: [
