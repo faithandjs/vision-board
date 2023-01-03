@@ -13,21 +13,18 @@ import Password from '../../components/Password';
 export default function Home() {
   // console.log(localStorage.getItem('my-vision-board?') !== undefined);
   // const details = JSON.parse(process.env.REACT_APP_DATA!);
-  const me_value =
+  const ls =
     localStorage.getItem('my-vision-board?') !== 'null' &&
-    localStorage.getItem('my-vision-board?') !== 'undefined'
-      ? JSON.parse(localStorage.getItem('my-vision-board?')!)
-      : false;
-  const showModal =
-    localStorage.getItem('my-vision-board?') !== 'null' &&
-    localStorage.getItem('my-vision-board?') !== 'undefined'
-      ? false
-      : true;
+    localStorage.getItem('my-vision-board?') !== 'undefined' &&
+    localStorage.getItem('my-vision-board?');
+
   const { states } = useToggleCtx();
   const { vision_board } = states;
   const [active, setActive] = useState(-1);
-  const [me, setMe] = useState<boolean>(me_value);
-  const [modal, setModal] = useState(showModal);
+  const [me, setMe] = useState<boolean>(
+    ls ? JSON.parse(localStorage.getItem('my-vision-board?')!) : false
+  );
+  const [modal, setModal] = useState<boolean>(ls ? false : true);
 
   const holder = me ? details : details2;
   const { data, theme } = holder;
@@ -39,10 +36,7 @@ export default function Home() {
       document.body.classList.remove('vision-body');
     }
   }, [states]);
-  useEffect(() => {
-    console.log(me, localStorage.getItem('my-vision-board?'));
-    console.log(me_value, showModal, modal);
-  });
+
   return (
     <>
       {!modal ? (
