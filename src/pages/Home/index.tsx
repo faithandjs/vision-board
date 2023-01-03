@@ -29,8 +29,9 @@ export default function Home() {
   const { data, theme } = holder;
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     if (vision_board) {
-      window.scrollTo(0, 0);
+      // window.scrollTo(0, 0);
       document.body.classList.add('vision-body');
     } else {
       document.body.classList.remove('vision-body');
