@@ -18,6 +18,11 @@ export default function Password({
     setModal(false);
     setting(value);
   };
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <>
       {modal ? (
