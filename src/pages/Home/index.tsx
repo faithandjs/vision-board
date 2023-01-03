@@ -12,7 +12,7 @@ import Password from '../../components/Password';
 
 export default function Home() {
   // console.log(localStorage.getItem('my-vision-board?') !== undefined);
-  const details = JSON.parse(process.env.REACT_APP_DATA!);
+  // const details = JSON.parse(process.env.REACT_APP_DATA!);
   const me_value =
     localStorage.getItem('my-vision-board?') !== 'null' &&
     localStorage.getItem('my-vision-board?') !== 'undefined'
