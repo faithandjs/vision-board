@@ -16,7 +16,7 @@ export default function Vision({
 
   // const color = useRef(Math.floor(Math.random() * 4));
   const { flip_all, vision_board } = states;
-  console.log(details, bonus, title);
+  // console.log(details, );
   useState();
   return (
     <div
@@ -52,7 +52,7 @@ export default function Vision({
               style={{ height: 'calc(100% - 100px)' }}>
               <div className=' h-full font-alexander text-base r'>
                 <div>
-                  {details}
+                  {/* {details} */}
                   {bonus && (
                     <p className='py-2'>
                       <span className='font-bold'>Bonus:</span>
