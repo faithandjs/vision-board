@@ -14,6 +14,10 @@ export default function Password({
   const [yes, setyes] = useState(false);
   const [value, setValue] = useState('');
 
+  const handleClick = (value: string) => {
+    setModal(false);
+    setting(value);
+  };
   return (
     <>
       {modal ? (
@@ -24,12 +28,7 @@ export default function Password({
               className='pt-4'
               onSubmit={(e) => {
                 e.preventDefault();
-                if (yes) {
-                  setting(value);
-                } else {
-                  setting(value);
-                }
-                setModal(false);
+                handleClick(value);
               }}>
               <input
                 type='password'
@@ -48,9 +47,7 @@ export default function Password({
                 <button
                   className='text-gray-700 mr-2'
                   type='button'
-                  onClick={() => {
-                    setModal(false);
-                  }}>
+                  onClick={() => handleClick('')}>
                   No
                 </button>
                 <button className='text-green-600' type='submit'>
