@@ -38,7 +38,6 @@ export default function Home() {
   }, [vision_board]);
 
   useEffect(() => {
-    console.log(ls_password, password, me, authstates);
     setMe(ls_password === password);
   }, [password]);
 
