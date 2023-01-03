@@ -2,6 +2,9 @@ ul {
   margin-left: 15px !important;
 }
 /* vision card */
+.cards {
+  min-height: 100vh;
+}
 .flip-card {
   .child {
     transform-style: preserve-3d;
@@ -228,6 +231,9 @@ ul {
   grid-row: 7/10;
 }
 
+.password {
+  background: rgba($color: #000000, $alpha: 0.4);
+}
 @media screen and (max-width: 425px) {
 }
 
