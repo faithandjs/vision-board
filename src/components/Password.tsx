@@ -39,7 +39,6 @@ export default function Password({
                 placeholder='Enter password'
                 onChange={(e) => {
                   const { value } = e.target;
-                  console.log(value, password, yes, value === password);
                   setValue(value);
                   if (value === password) setyes(true);
                   else setyes(false);
