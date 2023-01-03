@@ -37,7 +37,7 @@ export default function Password({
                 type='password'
                 name='passowrd'
                 id='password'
-                className='border-b-2 w-full py-2 outline-0'
+                className='border-b-2 w-full py-2 outline-0 border-0'
                 placeholder='Enter password'
                 onChange={(e) => {
                   const { value } = e.target;
