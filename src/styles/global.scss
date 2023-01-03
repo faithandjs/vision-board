@@ -1,6 +1,3 @@
-::-webkit-scrollbar {
-  display: none;
-}
 ul {
   margin-left: 15px !important;
 }
@@ -8,6 +5,9 @@ ul {
 /* vision card */
 .cards {
   min-height: 100vh;
+  .details ::-webkit-scrollbar {
+    display: none;
+  }
 }
 .flip-card {
   .child {
