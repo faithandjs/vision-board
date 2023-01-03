@@ -1,25 +1,21 @@
 import React, { useEffect, useState } from 'react';
+import { useUserCtx } from '../context/UserCtx';
 
 export default function Password({
-  setMe,
-  me,
   modal,
   setModal,
 }: {
-  setMe: React.Dispatch<React.SetStateAction<boolean>>;
-  me: boolean;
   setModal: React.Dispatch<React.SetStateAction<boolean>>;
   modal: boolean;
 }) {
-  const [yes, setyes] = useState(false);
   const password = process.env.REACT_APP_PASSWORD;
-  useEffect(() => {
-    localStorage.setItem('my-vision-board?', JSON.stringify(me));
-  }, [me]);
+  const { setting } = useUserCtx();
+
+  const [yes, setyes] = useState(false);
+  const [value, setValue] = useState('');
 
   return (
     <>
-      {' '}
       {modal ? (
         <div className='absolute h-screen inset-0 w-full flex justify-center items-center password text-gray-700'>
           <div className='rounded-lg p-6 bg-white  w-80 '>
@@ -28,9 +24,11 @@ export default function Password({
               className='pt-4'
               onSubmit={(e) => {
                 e.preventDefault();
-                if (yes) setMe(true);
-                else setMe(false);
-
+                if (yes) {
+                  setting(value);
+                } else {
+                  setting(value);
+                }
                 setModal(false);
               }}>
               <input
@@ -42,6 +40,7 @@ export default function Password({
                 onChange={(e) => {
                   const { value } = e.target;
                   console.log(value, password, yes, value === password);
+                  setValue(value);
                   if (value === password) setyes(true);
                   else setyes(false);
                 }}
@@ -52,7 +51,6 @@ export default function Password({
                   type='button'
                   onClick={() => {
                     setModal(false);
-                    setMe(false);
                   }}>
                   No
                 </button>

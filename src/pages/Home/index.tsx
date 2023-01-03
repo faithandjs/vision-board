@@ -8,23 +8,22 @@ import '../../styles/global.scss';
 import '../../styles/theme.scss';
 
 import { useToggleCtx } from '../../context/ToggleCtx';
+import { useUserCtx } from '../../context/UserCtx';
 import Password from '../../components/Password';
 
 export default function Home() {
-  // console.log(localStorage.getItem('my-vision-board?') !== undefined);
-  // const details = JSON.parse(process.env.REACT_APP_DATA!);
-  const ls =
-    localStorage.getItem('my-vision-board?') !== 'null' &&
-    localStorage.getItem('my-vision-board?') !== 'undefined' &&
-    localStorage.getItem('my-vision-board?');
-
+  const ls_password = process.env.REACT_APP_PASSWORD;
+  const setPassword = localStorage.getItem('vision-board-auth-seen')
+    ? JSON.parse(localStorage.getItem('vision-board-auth-seen')!)
+    : false;
   const { states } = useToggleCtx();
-  const { vision_board } = states;
+  const authstates = useUserCtx();
   const [active, setActive] = useState(-1);
-  const [me, setMe] = useState<boolean>(
-    ls ? JSON.parse(localStorage.getItem('my-vision-board?')!) : false
-  );
-  const [modal, setModal] = useState<boolean>(ls ? false : true);
+  const [me, setMe] = useState<boolean>(false);
+  const [modal, setModal] = useState<boolean>(!setPassword);
+
+  const { password } = authstates;
+  const { vision_board } = states;
 
   const holder = me ? details : details2;
   const { data, theme } = holder;
@@ -37,6 +36,11 @@ export default function Home() {
       document.body.classList.remove('vision-body');
     }
   }, [vision_board]);
+
+  useEffect(() => {
+    console.log(ls_password, password, me, authstates);
+    setMe(ls_password === password);
+  }, [password]);
 
   return (
     <>
@@ -105,7 +109,7 @@ export default function Home() {
       ) : (
         <></>
       )}
-      <Password {...{ setMe, me, modal, setModal }} />
+      <Password {...{ modal, setModal }} />
     </>
   );
 }
