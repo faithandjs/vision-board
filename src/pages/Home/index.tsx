@@ -31,7 +31,6 @@ export default function Home() {
   useEffect(() => {
     window.scrollTo(0, 0);
     if (vision_board) {
-      // window.scrollTo(0, 0);
       document.body.classList.add('vision-body');
     } else {
       document.body.classList.remove('vision-body');
