@@ -42,7 +42,7 @@ export default function Vision({
 
         <div className='back w-full h-full shadow-md absolute inset-0 z-[-1] '>
           <div className='relative h-full rounded-lg '>
-            <div className='border-b  backdrop-blur-2xl font-alexander '>
+            <div className='border-b border-gray-400 backdrop-blur-2xl font-alexander '>
               <h3 className='font-medium text-xl  py-4 px-2 text-center font-playfair uppercase'>
                 {title}
               </h3>
