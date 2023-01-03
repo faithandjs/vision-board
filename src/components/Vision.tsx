@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useState } from 'react';
 import { useToggleCtx } from '../context/ToggleCtx';
 
 export default function Vision({
@@ -11,12 +11,9 @@ export default function Vision({
   active,
   setActive,
 }: visionProps) {
-  const { states, setting } = useToggleCtx();
-  // const [active, setActive] = useState(-1);
-
-  // const color = useRef(Math.floor(Math.random() * 4));
+  const { states } = useToggleCtx();
   const { flip_all, vision_board } = states;
-  // console.log(details, );
+
   useState();
   return (
     <div
