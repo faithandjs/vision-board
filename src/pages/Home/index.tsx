@@ -17,7 +17,11 @@ export default function Home() {
     localStorage.getItem('my-vision-board?') !== 'undefined'
       ? JSON.parse(localStorage.getItem('my-vision-board?')!)
       : false;
-  const LS_me = localStorage.getItem('my-vision-board?') ? false : true;
+  const LS_me =
+    localStorage.getItem('my-vision-board?') &&
+    localStorage.getItem('my-vision-board?') !== 'undefined'
+      ? false
+      : true;
   const { states } = useToggleCtx();
   const { vision_board } = states;
   const [active, setActive] = useState(-1);
