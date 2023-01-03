@@ -14,14 +14,14 @@ export default function ToggleProvider({
         vision_board: true,
       };
   const [states, setStates] = useState({
+    ...initial,
     flip_all: false,
-    vision_board: true,
   });
   const { flip_all, vision_board } = states;
 
   useEffect(() => {
     if (vision_board && flip_all) setStates((p) => ({ ...p, flip_all: false }));
-    localStorage.setItem('vision-board-states', JSON.stringify(states));
+    localStorage.setItem('vision-board-states', JSON.stringify(states)); // eslint-disable-next-line
   }, [states]);
 
   const setting = (val: { [key: string]: boolean }) => {

@@ -39,7 +39,7 @@ export default function Home() {
 
   useEffect(() => {
     setMe(ls_password === password);
-  }, [password]);
+  }, [password, ls_password]);
 
   return (
     <>
