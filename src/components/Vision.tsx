@@ -45,7 +45,7 @@ export default function Vision({
               </h3>
             </div>
             <div
-              className='py-4 px-4 overflow-y-scroll  h-full details'
+              className='py-4 px-4 overflow-y-auto  h-full details'
               style={{ height: 'calc(100% - 100px)' }}>
               <div className=' h-full font-alexander text-base r'>
                 <div>

@@ -25,10 +25,10 @@
 .vision-body {
   height: 100vh;
   overflow: hidden;
-  ::-webkit-scrollbar-track {
+  &::-webkit-scrollbar-track {
     background-color: transparent;
   }
-  ::-webkit-scrollbar {
+  &::-webkit-scrollbar {
     display: none;
   }
 }
