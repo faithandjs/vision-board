@@ -15,7 +15,6 @@ export default function UserProvider({
 
   useEffect(() => {
     setPassword(ls);
-    console.log(ls);
   }, [ls]);
 
   const setting = (password: string) => {
