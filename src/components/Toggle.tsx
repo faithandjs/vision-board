@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import { useToggleCtx } from '../context/ToggleCtx';
 
 export default function Toggle({
