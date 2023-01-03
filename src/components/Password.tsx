@@ -8,10 +8,8 @@ export default function Password({
   setModal: React.Dispatch<React.SetStateAction<boolean>>;
   modal: boolean;
 }) {
-  const password = process.env.REACT_APP_PASSWORD;
   const { setting } = useUserCtx();
 
-  const [yes, setyes] = useState(false);
   const [value, setValue] = useState('');
 
   const handleClick = (value: string) => {
@@ -44,8 +42,6 @@ export default function Password({
                 onChange={(e) => {
                   const { value } = e.target;
                   setValue(value);
-                  if (value === password) setyes(true);
-                  else setyes(false);
                 }}
               />
               <div className='child:px-4 child:py-2 w-full flex justify-end mt-5 child:border child:rounded-md'>
