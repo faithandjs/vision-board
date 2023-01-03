@@ -52,7 +52,7 @@ export default function Vision({
               style={{ height: 'calc(100% - 100px)' }}>
               <div className=' h-full font-alexander text-base r'>
                 <div>
-                  {/* {details} */}
+                  {details}
                   {bonus && (
                     <p className='py-2'>
                       <span className='font-bold'>Bonus:</span>
