@@ -14,11 +14,12 @@ export default function Home() {
   // console.log(localStorage.getItem('my-vision-board?') !== undefined);
   const details = JSON.parse(process.env.REACT_APP_DATA!);
   const me_value =
+    localStorage.getItem('my-vision-board?') !== 'null' &&
     localStorage.getItem('my-vision-board?') !== 'undefined'
       ? JSON.parse(localStorage.getItem('my-vision-board?')!)
       : false;
-  const LS_me =
-    localStorage.getItem('my-vision-board?') &&
+  const showModal =
+    localStorage.getItem('my-vision-board?') !== 'null' &&
     localStorage.getItem('my-vision-board?') !== 'undefined'
       ? false
       : true;
@@ -26,7 +27,7 @@ export default function Home() {
   const { vision_board } = states;
   const [active, setActive] = useState(-1);
   const [me, setMe] = useState<boolean>(me_value);
-  const [modal, setModal] = useState(LS_me);
+  const [modal, setModal] = useState(showModal);
 
   const holder = me ? details : details2;
   const { data, theme } = holder;
@@ -40,8 +41,8 @@ export default function Home() {
   }, [states]);
   useEffect(() => {
     console.log(me, localStorage.getItem('my-vision-board?'));
-  }, [me]);
-  console.log(me_value, LS_me);
+    console.log(me_value, showModal, modal);
+  });
   return (
     <>
       {!modal ? (
