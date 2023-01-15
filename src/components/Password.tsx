@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { useUserCtx } from '../context/UserCtx';
 
 export default function Password({
   modal,
@@ -8,13 +7,11 @@ export default function Password({
   setModal: React.Dispatch<React.SetStateAction<boolean>>;
   modal: boolean;
 }) {
-  const { setting } = useUserCtx();
-
   const [value, setValue] = useState('');
 
   const handleClick = (value: string) => {
     setModal(false);
-    setting(value);
+    // setting(value);
   };
 
   useEffect(() => {

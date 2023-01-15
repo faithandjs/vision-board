@@ -4,18 +4,18 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import ToggleProvider from './context/ToggleCtx';
-import UserProvider from './context/UserCtx';
+import { AuthProvider } from './context/AuthCtx';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <UserProvider>
+    <AuthProvider>
       <ToggleProvider>
         <App />
       </ToggleProvider>
-    </UserProvider>
+    </AuthProvider>
   </React.StrictMode>
 );
 

@@ -8,21 +8,17 @@ import '../../styles/global.scss';
 import '../../styles/theme.scss';
 
 import { useToggleCtx } from '../../context/ToggleCtx';
-import { useUserCtx } from '../../context/UserCtx';
-import Password from '../../components/Password';
+import { Menu } from '../../components';
 
 export default function Home() {
-  const ls_password = process.env.REACT_APP_PASSWORD;
   const setPassword = localStorage.getItem('vision-board-auth-seen')
     ? JSON.parse(localStorage.getItem('vision-board-auth-seen')!)
     : false;
   const { states } = useToggleCtx();
-  const authstates = useUserCtx();
   const [active, setActive] = useState(-1);
   const [me, setMe] = useState<boolean>(false);
   const [modal, setModal] = useState<boolean>(!setPassword);
 
-  const { password } = authstates;
   const { vision_board } = states;
 
   const holder = me ? details : details2;
@@ -36,11 +32,9 @@ export default function Home() {
       document.body.classList.remove('vision-body');
     }
   }, [vision_board]);
-
-  useEffect(() => {
-    setMe(ls_password === password);
-  }, [password, ls_password]);
-
+  {
+    /* <Bubble size='32' color='#37d67a' variant='Bold' />; */
+  }
   return (
     <>
       {!modal ? (
@@ -66,6 +60,7 @@ export default function Home() {
           {/* cards */}
           {data && (
             <div className='cards flex justify-center child:shrink-0 flex-wrap  transition-all duration-700'>
+              <Menu />
               {data.map((item: any, key: number) => {
                 return (
                   <Vision
@@ -84,6 +79,7 @@ export default function Home() {
               {data.map((item: any, key: number) => {
                 return (
                   <div
+                    key={key}
                     className={`grid-item${key + 1}`}
                     style={{ backgroundImage: `url(${item.image.src})` }}></div>
                 );
@@ -108,7 +104,6 @@ export default function Home() {
       ) : (
         <></>
       )}
-      <Password {...{ modal, setModal }} />
     </>
   );
 }
