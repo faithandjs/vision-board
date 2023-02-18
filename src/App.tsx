@@ -11,8 +11,14 @@ function App() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-  console.log(currentUser);
-  return <div>{currentUser ? <Home /> : <Login />}</div>;
+  // console.log(currentUser, currentUser ? '<Home /> ' : ' <Login />');
+
+  return (
+    <div>
+      {currentUser ? <Home /> : <Login />}
+      <Login />
+    </div>
+  );
 }
 
 export default App;

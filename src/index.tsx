@@ -3,19 +3,16 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import ToggleProvider from './context/ToggleCtx';
-import { AuthProvider } from './context/AuthCtx';
+import ContextManager from './context';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <AuthProvider>
-      <ToggleProvider>
-        <App />
-      </ToggleProvider>
-    </AuthProvider>
+    <ContextManager>
+      <App />
+    </ContextManager>
   </React.StrictMode>
 );
 

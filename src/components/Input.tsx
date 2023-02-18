@@ -8,13 +8,13 @@ const Input = (props: TextInputInterface) => {
   const [type, setType] = useState(props.type);
   const togglePasswordVisibility = () =>
     type === 'password' ? setType('text') : setType('password');
-
+  // text-[#54565b]
   return (
     <div className='relative mb-7 w-full'>
       {props.label && (
         <label
           htmlFor={props.name || props.id}
-          className='block mb-5 text-sm tracking-wide text-[#54565b]  capitalize'>
+          className='block mb-5 text-sm tracking-wide   capitalize'>
           {props.label}
           {props.required && <span className='text-red-400'>*</span>}
         </label>
@@ -24,7 +24,7 @@ const Input = (props: TextInputInterface) => {
           type={type}
           id={props.id}
           className={
-            'block w-full py-2 border bg-gray-50  text-[#9fa19c] text-base rounded-lg px-3 pr-6 focus:outline-none focus:ring-1 focus:ring-grey10 appearance-none ' +
+            'block w-full py-2 border bg-gray-50  text-base rounded-lg px-3 pr-6 focus:outline-none focus:ring-1 focus:ring-pink appearance-none ' +
             props.class
           }
           placeholder={props.placeholder}

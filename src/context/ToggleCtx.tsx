@@ -1,6 +1,14 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 
-const ToggleCtx = createContext({} as any);
+const ToggleCtx = createContext(
+  {} as {
+    states: {
+      flip_all: boolean;
+      vision_board: boolean;
+    };
+    setting: (val: { [key: string]: boolean }) => void;
+  }
+);
 
 export default function ToggleProvider({
   children,
