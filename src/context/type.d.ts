@@ -1,9 +1,6 @@
 interface AuthCtxProp {
   currentUser: User | null;
-  submitting: boolean;
-  setIsSubmitting: React.Dispatch<React.SetStateAction<boolean>>;
-  login: ({ email, password }: authProp) => void;
-  signup: ({ email, password }: authProp) => void;
+  setcurrentUser: React.Dispatch<React.SetStateAction<User | null>>;
 }
 interface authProp {
   email: string;

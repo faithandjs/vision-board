@@ -1,39 +1,26 @@
 import React, { useState } from 'react';
 import { Form, Formik } from 'formik';
 import { Modal, Loader } from '@mantine/core';
-import { Link, useNavigate } from 'react-router-dom';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 
 import { auth } from '../../data/firebase';
 import { Input } from '../../components';
+import { useAuthCtx } from '../../context/AuthCtx';
 import { loginVal } from './validation';
+import { useNavigate } from 'react-router-dom';
 
-export default function Login() {
+export default function ForgortPwd() {
   const navigate = useNavigate();
   const [submitting, setIsSubmitting] = useState(false);
   const [opened, setOpened] = useState(true);
-
-  const login = ({ email, password }: authProp) => {
-    setIsSubmitting(true);
-    signInWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        // const user = userCredential.user;
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-    setIsSubmitting(false);
-  };
-
   return (
     <div>
       <Modal
         opened={opened}
         onClose={() => {
           setOpened(false);
-          navigate('/');
         }}
-        title='Login'
+        title='Forgot Password'
         centered
         styles={{
           title: {
@@ -41,8 +28,7 @@ export default function Login() {
             fontSize: '1.3rem',
           },
         }}>
-        {/* className='bg-white dark:bg-[]' */}
-        <div>
+        {/* <div>
           <Formik
             initialValues={{
               email: '',
@@ -70,13 +56,9 @@ export default function Login() {
                 placeholder='Enter your password'
                 boxClass='mb-4'
               />
-              <div className='pb-10 flex w-full justify-between text-sm italic child-hover:cursor-pointer child-hover:text-main child:transition-all duration-200'>
-                <Link to='/auth/signup'>
-                  <span>sign up</span>
-                </Link>
-                <Link to='/auth/forgot-password'>
-                  <span> forgot password?</span>
-                </Link>
+              <div className='pb-5 flex w-full justify-between text-sm italic child-hover:cursor-pointer child-hover:text-main child:transition-all duration-200'>
+                <button onClick={() => navigate('auth/signup')}>sign up</button>
+                <button>forgot password?</button>
               </div>
               <div className='flex w-full justify-end'>
                 <button
@@ -93,7 +75,7 @@ export default function Login() {
               </div>
             </Form>
           </Formik>
-        </div>
+        </div> */}
       </Modal>
     </div>
   );

@@ -12,29 +12,17 @@ html {
   &.dark {
     body {
       background-color: #37444c;
-      // background-color: #5e7583;
-      // background-color: #442858;
       color: #fff;
     }
   }
 }
 html.dark .mantine-Paper-root {
-  //     background-color: #5e7583;
-  // background-color: #161c27 !important;
-  // color: #b0b7c3 !important;
 }
 html.dark .mantine-Modal-modal {
   @apply bg-darkbg text-white;
 }
 html.dark .mantine-Modal-overlay {
-  @apply bg-lighterWhite opacity-5;
 }
-// html.dark .mantine-Modal-title {
-//   color: #b0b7c3 !important;
-// }
-// html.dark .mantine-UnstyledButton-root:hover {
-//   background-color: #4b5568;
-// }
 
 .vision-board {
   .grid {

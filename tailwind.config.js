@@ -16,7 +16,7 @@ module.exports = {
       colors: {
         lightWhite: 'rgba(255,255,255,.3)',
         lighterWhite: 'rgba(255,255,255,.15)',
-        pink: '#ea1961',
+        main: '#ea1961',
         darkbg: '#37444c',
       },
     },

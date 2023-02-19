@@ -1,27 +1,33 @@
-import React, { useRef } from 'react';
-import { RiUserSmileFill } from 'react-icons/ri';
-import { CgCardSpades } from 'react-icons/cg';
-import { HiOutlineViewBoards } from 'react-icons/hi';
+import React, { useRef, useState } from 'react';
+import { signOut, getAuth } from 'firebase/auth';
+import { Menu } from '@mantine/core';
 import {
-  MdDashboard,
-  MdFlipCameraAndroid,
-  MdOutlineFlip,
-} from 'react-icons/md';
-import { FaChessBoard } from 'react-icons/fa';
+  Setting2,
+  Profile,
+  Edit2,
+  LogoutCurve,
+  HambergerMenu,
+  LoginCurve,
+} from 'iconsax-react';
+import { useNavigate } from 'react-router-dom';
+
 import { useThemeCtx } from '../context/themeCtx';
 import { useToggleCtx } from '../context/ToggleCtx';
-import { Sun1, Menu, Moon } from 'iconsax-react';
+import { useAuthCtx } from '../context/AuthCtx';
 
 export default function MenuView() {
+  const auth = getAuth();
+  const navigate = useNavigate();
+  const { currentUser } = useAuthCtx();
   const { setTheme, theme } = useThemeCtx();
   const { states, setting } = useToggleCtx();
+
+  const [opened, setOpened] = useState(true);
   const VB_toggle = useRef<HTMLInputElement>(null);
+
   return (
-    <div className='fixed right-3 bottom-[10vh] bg-gray-600 menu'>
-      <div>
-        <Menu size='32' color='#FF8A65' variant='Bulk' />
-      </div>
-      <span
+    <div className='pr-10 pb-6'>
+      {/* <span
         onClick={() => VB_toggle.current?.click()}
         className='hover:cursor-pointer relative'>
         <span>
@@ -50,16 +56,79 @@ export default function MenuView() {
         ) : (
           <Moon size='24' color='#d9e3f0' variant='Bold' />
         )}
-      </span>
-      {/* <Bubble size='24' color='#37d67a' variant='Bold' /> */}
+      </span> */}
+
+      {/* ======= */}
+      <Menu
+        shadow='md'
+        width={150}
+        transition='slide-up'
+        position='bottom'
+        styles={{
+          dropdown: {
+            // backgroundColor: theme === 'dark' ? '#5e7583' : 'white',
+            border: 0,
+          },
+          item: {
+            // color: theme === 'dark' ? 'white' : '#1d1d1d',
+            '&:last-child': {
+              // color: currentUser ? 'red' : 'pink',
+            },
+          },
+        }}>
+        <Menu.Target>
+          <div className='hover:cursor-pointer'>
+            <HambergerMenu size='32' className='' />
+          </div>
+        </Menu.Target>
+
+        <Menu.Dropdown>
+          <Menu.Item
+            icon={<Edit2 size='12' variant='Outline' />}
+            onClick={() => {
+              navigate('/edit-board');
+            }}>
+            Edit Board
+          </Menu.Item>
+          <Menu.Item
+            icon={<Profile size='12' variant='Outline' />}
+            onClick={() => {
+              navigate('/profile');
+            }}>
+            Profile
+          </Menu.Item>
+          <Menu.Item
+            icon={<Setting2 size='12' variant='Outline' />}
+            onClick={() => {}}>
+            Settings
+          </Menu.Item>
+          <Menu.Item
+            color={currentUser ? 'red' : 'pink'}
+            icon={
+              currentUser ? (
+                <LogoutCurve size='12' variant='Outline' />
+              ) : (
+                <LoginCurve size='12' variant='Outline' />
+              )
+            }
+            onClick={() => {
+              if (currentUser) {
+                signOut(auth)
+                  .then(() => {
+                    navigate('/');
+                  })
+                  .catch((error) => {
+                    console.log('sign out failed', error);
+                  });
+              } else {
+                navigate('/auth/login');
+              }
+            }}>
+            {currentUser ? 'Logout' : 'Login/Sign up'}
+          </Menu.Item>
+        </Menu.Dropdown>
+      </Menu>
     </div>
   );
 }
-
-// RiUserSmileFill; //user
-// CgCardSpades;
-// HiOutlineViewBoards;
-// MdDashboard; //cards
-// FaChessBoard; //board
-// MdFlipCameraAndroid; //flip
 

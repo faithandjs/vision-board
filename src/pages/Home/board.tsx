@@ -10,15 +10,12 @@ import '../../styles/theme.scss';
 
 import { useToggleCtx } from '../../context/ToggleCtx';
 import { Menu } from '../../components';
+import { Outlet } from 'react-router-dom';
 
-export default function Home() {
-  const setPassword = localStorage.getItem('vision-board-auth-seen')
-    ? JSON.parse(localStorage.getItem('vision-board-auth-seen')!)
-    : false;
+export default function Board() {
   const { states } = useToggleCtx();
   const [active, setActive] = useState(-1);
   const [me, setMe] = useState<boolean>(false);
-  const [modal, setModal] = useState<boolean>(!setPassword);
 
   const { vision_board } = states;
 
@@ -33,12 +30,8 @@ export default function Home() {
       document.body.classList.remove('vision-body');
     }
   }, [vision_board]);
-  {
-    /* <Bubble size='32' color='#37d67a' variant='Bold' />; */
-  }
   return (
     <>
-      {/* {!modal ? ( */}
       <div
         className={
           'md:px-6 py-10  ' +
@@ -46,20 +39,25 @@ export default function Home() {
             ? 'vision-board '
             : 'not-vision-board border-8 border-[#2f2f2f] border-double ')
         }>
-        <div
-          className={
-            'z-20 relative  transition-[transform] duration-700 py-4  flex w-full flex-col text-center ' +
-            (states.vision_board
-              ? 'text-white   absolute inset-0 translate-y-[40vh]'
-              : '  delay-150 ')
-          }>
-          <h1 className={'font-deraga font-thin  text-5xl '}>My 2023</h1>
-          <p className={'font-alexander font-medium text-xl pb-4  '}>{theme}</p>
+        <div className='flex items-center'>
+          <div
+            className={
+              'z-20 relative  transition-[transform] duration-700 py-4  flex w-full flex-col text-center ' +
+              (states.vision_board
+                ? 'text-white   absolute inset-0 translate-y-[40vh]'
+                : '  delay-150 ')
+            }>
+            <h1 className={'font-deraga font-thin  text-5xl '}>My 2023</h1>
+            <p className={'font-alexander font-medium text-xl pb-4  '}>
+              {theme}
+            </p>
+          </div>
+          <Menu />
         </div>
+
         {/* cards */}
         {data && (
           <div className='cards flex justify-center child:shrink-0 flex-wrap  transition-[transform] duration-700'>
-            <Menu />
             {data.map((item: any, key: number) => {
               return (
                 <Vision
@@ -85,6 +83,7 @@ export default function Home() {
             })}
           </div>
         )}
+        <Outlet />
         <div className='fixed bottom-0 left-0 w-full flex justify-between px-5 pb-4 z-20'>
           <Toggle
             label='vision board'
@@ -100,9 +99,6 @@ export default function Home() {
           />
         </div>
       </div>
-      {/* ) : (
-        <>home?</>
-      )} */}
     </>
   );
 }
