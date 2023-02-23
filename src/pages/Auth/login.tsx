@@ -11,17 +11,15 @@ import { loginVal } from './validation';
 export default function Login() {
   const navigate = useNavigate();
   const [submitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState();
   const [opened, setOpened] = useState(true);
 
   const login = ({ email, password }: authProp) => {
     setIsSubmitting(true);
-    signInWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        // const user = userCredential.user;
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    signInWithEmailAndPassword(auth, email, password).catch((error) => {
+      // const e = error;
+      console.log(error);
+    });
     setIsSubmitting(false);
   };
 

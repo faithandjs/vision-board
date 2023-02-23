@@ -1,7 +1,7 @@
 interface TextInputInterface {
   id: string;
   name: string;
-  label: string;
+  label?: string;
   type:
     | 'text'
     | 'email'
@@ -27,6 +27,21 @@ interface visionProps {
   id: number;
   setActive: React.Dispatch<React.SetStateAction<number>>;
   active: number;
+}
+interface cardProps {
+  title: string;
+  details: {
+    [key: string]: any;
+  };
+  image: imageObj;
+  id: number;
+  setActive: React.Dispatch<React.SetStateAction<number>>;
+  active: number;
+  setFieldValue: (
+    field: string,
+    value: any,
+    shouldValidate?: boolean | undefined
+  ) => void;
 }
 
 interface toggle {

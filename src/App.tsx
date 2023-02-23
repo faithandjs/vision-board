@@ -3,7 +3,15 @@ import React, { useEffect } from 'react';
 import { useAuthCtx } from './context/AuthCtx';
 
 import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
-import { Profile, Signup, Board, Login, ForgortPwd, Edit } from './pages';
+import {
+  Profile,
+  Signup,
+  Board,
+  Login,
+  ForgortPwd,
+  Edit,
+  Settings,
+} from './pages';
 
 import './App.css';
 
@@ -34,12 +42,13 @@ function App() {
       {/* <Board /> */}
       <Routes>
         <Route path='/' element={<Board />}>
+          <Route path='vision-board' element={<Board />} />
           <Route path='auth/login' element={<Login />} />
           <Route path='auth/signup' element={<Signup />} />
           <Route path='auth/forgot-password' element={<ForgortPwd />} />
-          <Route path='profile' element={<Profile />} />
           <Route path='edit-board' element={<Edit />} />
         </Route>
+        <Route path='settings' element={<Settings />} />
       </Routes>
     </div>
   );

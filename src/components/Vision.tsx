@@ -14,7 +14,6 @@ export default function Vision({
   const { states } = useToggleCtx();
   const { flip_all, vision_board } = states;
 
-  useState();
   return (
     <div
       className={

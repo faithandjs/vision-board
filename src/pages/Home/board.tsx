@@ -1,26 +1,27 @@
 import React, { useEffect, useState } from 'react';
+import { Outlet } from 'react-router-dom';
 
 import Vision from '../../components/Vision';
 import Toggle from '../../components/Toggle';
-import { details, details2 } from '../../data';
+import { Menu } from '../../components';
+import { details, details2, test } from '../../data';
 
 import '../../styles/global.scss';
 import '../../styles/grid.scss';
 import '../../styles/theme.scss';
+import '../../styles/vision-board.scss';
 
 import { useToggleCtx } from '../../context/ToggleCtx';
-import { Menu } from '../../components';
-import { Outlet } from 'react-router-dom';
+import { useAuthCtx } from '../../context/AuthCtx';
+import Card from '../../components/card';
+import { Form, Formik } from 'formik';
 
 export default function Board() {
   const { states } = useToggleCtx();
+  const { board } = useAuthCtx();
   const [active, setActive] = useState(-1);
-  const [me, setMe] = useState<boolean>(false);
-
   const { vision_board } = states;
-
-  const holder = me ? details : details2;
-  const { data, theme } = holder;
+  const { data, theme } = details2;
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -30,6 +31,7 @@ export default function Board() {
       document.body.classList.remove('vision-body');
     }
   }, [vision_board]);
+
   return (
     <>
       <div
@@ -57,22 +59,34 @@ export default function Board() {
 
         {/* cards */}
         {data && (
-          <div className='cards flex justify-center child:shrink-0 flex-wrap  transition-[transform] duration-700'>
-            {data.map((item: any, key: number) => {
+          <Formik initialValues={{ data: board.data }} onSubmit={() => {}}>
+            {({ values, setFieldValue }) => {
               return (
-                <Vision
-                  {...{ ...item, active, setActive }}
-                  key={key}
-                  id={key}
-                />
+                <Form>
+                  <div className='cards flex justify-center child:shrink-0 flex-wrap  transition-[transform] duration-700'>
+                    {values.data.map((item, key) => {
+                      return (
+                        <Card
+                          {...{ active, setActive, ...item, setFieldValue }}
+                          key={key}
+                          id={key}
+                        />
+                      );
+                    })}
+                  </div>
+                </Form>
               );
-            })}
-          </div>
+            }}
+          </Formik>
         )}
 
         {/* grid */}
         {data && (
-          <div className='grid transition-[transform] duration-700 absolute inset-0 w-full h-screen  brightness-75'>
+          <div
+            className={
+              'grid transition-[transform] duration-700 absolute inset-0 w-full h-screen  brightness-75 grid-' +
+              data.length
+            }>
             {data.map((item: any, key: number) => {
               return (
                 <div

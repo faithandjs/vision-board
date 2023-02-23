@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Form, Formik } from 'formik';
 import { Modal, Loader } from '@mantine/core';
-import { signInWithEmailAndPassword } from 'firebase/auth';
+import { getAuth, sendPasswordResetEmail } from 'firebase/auth';
 
 import { auth } from '../../data/firebase';
 import { Input } from '../../components';
@@ -10,9 +10,22 @@ import { loginVal } from './validation';
 import { useNavigate } from 'react-router-dom';
 
 export default function ForgortPwd() {
+  const auth = getAuth();
   const navigate = useNavigate();
   const [submitting, setIsSubmitting] = useState(false);
   const [opened, setOpened] = useState(true);
+  const resetPassword = (email: string) => {
+    sendPasswordResetEmail(auth, email)
+      .then(() => {
+        // Password reset email sent!
+        // ..
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        // ..
+      });
+  };
   return (
     <div>
       <Modal

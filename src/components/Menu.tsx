@@ -90,16 +90,12 @@ export default function MenuView() {
             }}>
             Edit Board
           </Menu.Item>
-          <Menu.Item
-            icon={<Profile size='12' variant='Outline' />}
-            onClick={() => {
-              navigate('/profile');
-            }}>
-            Profile
-          </Menu.Item>
+
           <Menu.Item
             icon={<Setting2 size='12' variant='Outline' />}
-            onClick={() => {}}>
+            onClick={() => {
+              navigate('/settings');
+            }}>
             Settings
           </Menu.Item>
           <Menu.Item
