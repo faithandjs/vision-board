@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 import Vision from '../../components/Vision';
 import Toggle from '../../components/Toggle';
-import { details, details2 } from '../../data';
+import { details2 } from '../../data';
 
 import '../../styles/global.scss';
 import '../../styles/theme.scss';
@@ -20,13 +20,12 @@ export default function Home() {
   const authstates = useUserCtx();
   const [active, setActive] = useState(-1);
   const [me, setMe] = useState<boolean>(false);
-  const [modal, setModal] = useState<boolean>(!setPassword);
+  const [modal, setModal] = useState<boolean>(false);
 
   const { password } = authstates;
   const { vision_board } = states;
 
-  const holder = me ? details : details2;
-  const { data, theme } = holder;
+  const { data, theme } = details2;
 
   useEffect(() => {
     window.scrollTo(0, 0);
