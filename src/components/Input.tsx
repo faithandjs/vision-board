@@ -14,35 +14,37 @@ const Input = (props: TextInputInterface) => {
   // text-[#54565b]
   return (
     <div className={'relative mb-7 w-full ' + props.boxClass}>
-      {props.label && (
-        <label
-          htmlFor={props.name || props.id}
-          className='block mb-5 text-sm tracking-wide   capitalize'>
-          {props.label}
-          {props.required && <span className='text-red-400'>*</span>}
-        </label>
-      )}
-      <div className='relative'>
-        <input
-          type={type}
-          id={props.id}
-          className={
-            'block w-full py-2 border text-[#1d1d1d] bg-gray-50  text-base rounded-lg px-3 pr-6 focus:outline-none focus:ring-1 focus:ring-pink appearance-none ' +
-            props.class
-          }
-          placeholder={props.placeholder}
-          {...field}
-          disabled={props.disabled}
-        />
-        {props.type === 'password' && (
-          <AiOutlineEyeInvisible
-            size={18}
-            className='cursor-pointer text-2xl text-gray-400 absolute right-3 top-[50%] translate-y-[-50%] active:drop-shadow-md'
-            onClick={togglePasswordVisibility}
-          />
+      <div
+        className={props.inline ? 'flex w-full items-center child:mb-0' : ''}>
+        {props.label && (
+          <label
+            htmlFor={props.name || props.id}
+            className='block mb-3 text-sm tracking-wide whitespace-nowrap  capitalize pr-2'>
+            {props.label}
+            {props.required && <span className='text-red-400'>*</span>}
+          </label>
         )}
+        <div className='relative w-full'>
+          <input
+            type={type}
+            id={props.id}
+            className={
+              'block w-full py-2 border text-[#1d1d1d] bg-gray-50  text-base rounded-lg px-3 pr-6 focus:outline-none focus:ring-1 focus:ring-pink appearance-none ' +
+              props.class
+            }
+            placeholder={props.placeholder}
+            {...field}
+            disabled={props.disabled}
+          />
+          {props.type === 'password' && (
+            <AiOutlineEyeInvisible
+              size={18}
+              className='cursor-pointer text-2xl text-gray-400 absolute right-3 top-[50%] translate-y-[-50%] active:drop-shadow-md'
+              onClick={togglePasswordVisibility}
+            />
+          )}
+        </div>
       </div>
-
       {meta.error && meta.touched && (
         <div
           className={

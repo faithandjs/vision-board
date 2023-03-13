@@ -690,6 +690,852 @@ export const test: dataType = {
         p2: 'Iure dolorum tempora, Iure dolorum tempora Iure dolorum tempora/Iure dolorum tempora.',
       },
     },
+    {
+      title: 'Iure dolorum tempora',
+      image: {
+        src: 'https://i.pinimg.com/originals/25/bb/42/25bb426851361120b7e35400195b1caa.jpg',
+        alt: 'dummy image',
+      },
+      details: {
+        p1: 'Iure dolorum tempora Iure dolorum tempora Iure dolorum tempora Iure dolorum tempora Iure dolorum tempora',
+        list1: { list: ['Iure dolorum tempora'], title: 'hee' },
+        check1: {
+          list: [
+            {
+              value: 'Iure dolorum tempora',
+              checked: false,
+            },
+            {
+              value: 'Iure dolorum tempora',
+              checked: false,
+            },
+            {
+              value: 'Iure dolorum tempora',
+              checked: false,
+            },
+          ],
+          title: 'heeeee',
+        },
+        list2: { list: ['Iure dolorum tempora'], title: 'hee' },
+        check2: {
+          list: [
+            {
+              value: 'Iure dolorum tempora',
+              checked: false,
+            },
+            {
+              value: 'Iure dolorum tempora',
+              checked: false,
+            },
+            {
+              value: 'Iure dolorum tempora',
+              checked: false,
+            },
+          ],
+          title: 'heeeee',
+        },
+        p2: 'Iure dolorum tempora, Iure dolorum tempora Iure dolorum tempora/Iure dolorum tempora.',
+      },
+    },
+    {
+      title: 'Iure dolorum tempora',
+      image: {
+        src: 'https://i.pinimg.com/originals/25/bb/42/25bb426851361120b7e35400195b1caa.jpg',
+        alt: 'dummy image',
+      },
+      details: {
+        p1: 'Iure dolorum tempora Iure dolorum tempora Iure dolorum tempora Iure dolorum tempora Iure dolorum tempora',
+        list1: { list: ['Iure dolorum tempora'], title: 'hee' },
+        check1: {
+          list: [
+            {
+              value: 'Iure dolorum tempora',
+              checked: false,
+            },
+            {
+              value: 'Iure dolorum tempora',
+              checked: false,
+            },
+            {
+              value: 'Iure dolorum tempora',
+              checked: false,
+            },
+          ],
+          title: 'heeeee',
+        },
+        list2: { list: ['Iure dolorum tempora'], title: 'hee' },
+        check2: {
+          list: [
+            {
+              value: 'Iure dolorum tempora',
+              checked: false,
+            },
+            {
+              value: 'Iure dolorum tempora',
+              checked: false,
+            },
+            {
+              value: 'Iure dolorum tempora',
+              checked: false,
+            },
+          ],
+          title: 'heeeee',
+        },
+        p2: 'Iure dolorum tempora, Iure dolorum tempora Iure dolorum tempora/Iure dolorum tempora.',
+      },
+    },
+    {
+      title: 'Iure dolorum tempora',
+      image: {
+        src: 'https://i.pinimg.com/originals/25/bb/42/25bb426851361120b7e35400195b1caa.jpg',
+        alt: 'dummy image',
+      },
+      details: {
+        p1: 'Iure dolorum tempora Iure dolorum tempora Iure dolorum tempora Iure dolorum tempora Iure dolorum tempora',
+        list1: { list: ['Iure dolorum tempora'], title: 'hee' },
+        check1: {
+          list: [
+            {
+              value: 'Iure dolorum tempora',
+              checked: false,
+            },
+            {
+              value: 'Iure dolorum tempora',
+              checked: false,
+            },
+            {
+              value: 'Iure dolorum tempora',
+              checked: false,
+            },
+          ],
+          title: 'heeeee',
+        },
+        list2: { list: ['Iure dolorum tempora'], title: 'hee' },
+        check2: {
+          list: [
+            {
+              value: 'Iure dolorum tempora',
+              checked: false,
+            },
+            {
+              value: 'Iure dolorum tempora',
+              checked: false,
+            },
+            {
+              value: 'Iure dolorum tempora',
+              checked: false,
+            },
+          ],
+          title: 'heeeee',
+        },
+        p2: 'Iure dolorum tempora, Iure dolorum tempora Iure dolorum tempora/Iure dolorum tempora.',
+      },
+    },
+    // {
+    //   title: 'Iure dolorum tempora',
+    //   image: {
+    //     src: 'https://i.pinimg.com/originals/25/bb/42/25bb426851361120b7e35400195b1caa.jpg',
+    //     alt: 'dummy image',
+    //   },
+    //   details: {
+    //     p1: 'Iure dolorum tempora Iure dolorum tempora Iure dolorum tempora Iure dolorum tempora Iure dolorum tempora',
+    //     list1: { list: ['Iure dolorum tempora'], title: 'hee' },
+    //     check1: {
+    //       list: [
+    //         {
+    //           value: 'Iure dolorum tempora',
+    //           checked: false,
+    //         },
+    //         {
+    //           value: 'Iure dolorum tempora',
+    //           checked: false,
+    //         },
+    //         {
+    //           value: 'Iure dolorum tempora',
+    //           checked: false,
+    //         },
+    //       ],
+    //       title: 'heeeee',
+    //     },
+    //     list2: { list: ['Iure dolorum tempora'], title: 'hee' },
+    //     check2: {
+    //       list: [
+    //         {
+    //           value: 'Iure dolorum tempora',
+    //           checked: false,
+    //         },
+    //         {
+    //           value: 'Iure dolorum tempora',
+    //           checked: false,
+    //         },
+    //         {
+    //           value: 'Iure dolorum tempora',
+    //           checked: false,
+    //         },
+    //       ],
+    //       title: 'heeeee',
+    //     },
+    //     p2: 'Iure dolorum tempora, Iure dolorum tempora Iure dolorum tempora/Iure dolorum tempora.',
+    //   },
+    // },
+    // {
+    //   title: 'Iure dolorum tempora',
+    //   image: {
+    //     src: 'https://i.pinimg.com/originals/25/bb/42/25bb426851361120b7e35400195b1caa.jpg',
+    //     alt: 'dummy image',
+    //   },
+    //   details: {
+    //     p1: 'Iure dolorum tempora Iure dolorum tempora Iure dolorum tempora Iure dolorum tempora Iure dolorum tempora',
+    //     list1: { list: ['Iure dolorum tempora'], title: 'hee' },
+    //     check1: {
+    //       list: [
+    //         {
+    //           value: 'Iure dolorum tempora',
+    //           checked: false,
+    //         },
+    //         {
+    //           value: 'Iure dolorum tempora',
+    //           checked: false,
+    //         },
+    //         {
+    //           value: 'Iure dolorum tempora',
+    //           checked: false,
+    //         },
+    //       ],
+    //       title: 'heeeee',
+    //     },
+    //     list2: { list: ['Iure dolorum tempora'], title: 'hee' },
+    //     check2: {
+    //       list: [
+    //         {
+    //           value: 'Iure dolorum tempora',
+    //           checked: false,
+    //         },
+    //         {
+    //           value: 'Iure dolorum tempora',
+    //           checked: false,
+    //         },
+    //         {
+    //           value: 'Iure dolorum tempora',
+    //           checked: false,
+    //         },
+    //       ],
+    //       title: 'heeeee',
+    //     },
+    //     p2: 'Iure dolorum tempora, Iure dolorum tempora Iure dolorum tempora/Iure dolorum tempora.',
+    //   },
+    // },
+    // {
+    //   title: 'Iure dolorum tempora',
+    //   image: {
+    //     src: 'https://i.pinimg.com/originals/25/bb/42/25bb426851361120b7e35400195b1caa.jpg',
+    //     alt: 'dummy image',
+    //   },
+    //   details: {
+    //     p1: 'Iure dolorum tempora Iure dolorum tempora Iure dolorum tempora Iure dolorum tempora Iure dolorum tempora',
+    //     list1: { list: ['Iure dolorum tempora'], title: 'hee' },
+    //     check1: {
+    //       list: [
+    //         {
+    //           value: 'Iure dolorum tempora',
+    //           checked: false,
+    //         },
+    //         {
+    //           value: 'Iure dolorum tempora',
+    //           checked: false,
+    //         },
+    //         {
+    //           value: 'Iure dolorum tempora',
+    //           checked: false,
+    //         },
+    //       ],
+    //       title: 'heeeee',
+    //     },
+    //     list2: { list: ['Iure dolorum tempora'], title: 'hee' },
+    //     check2: {
+    //       list: [
+    //         {
+    //           value: 'Iure dolorum tempora',
+    //           checked: false,
+    //         },
+    //         {
+    //           value: 'Iure dolorum tempora',
+    //           checked: false,
+    //         },
+    //         {
+    //           value: 'Iure dolorum tempora',
+    //           checked: false,
+    //         },
+    //       ],
+    //       title: 'heeeee',
+    //     },
+    //     p2: 'Iure dolorum tempora, Iure dolorum tempora Iure dolorum tempora/Iure dolorum tempora.',
+    //   },
+    // },
+    // {
+    //   title: 'Iure dolorum tempora',
+    //   image: {
+    //     src: 'https://i.pinimg.com/originals/25/bb/42/25bb426851361120b7e35400195b1caa.jpg',
+    //     alt: 'dummy image',
+    //   },
+    //   details: {
+    //     p1: 'Iure dolorum tempora Iure dolorum tempora Iure dolorum tempora Iure dolorum tempora Iure dolorum tempora',
+    //     list1: { list: ['Iure dolorum tempora'], title: 'hee' },
+    //     check1: {
+    //       list: [
+    //         {
+    //           value: 'Iure dolorum tempora',
+    //           checked: false,
+    //         },
+    //         {
+    //           value: 'Iure dolorum tempora',
+    //           checked: false,
+    //         },
+    //         {
+    //           value: 'Iure dolorum tempora',
+    //           checked: false,
+    //         },
+    //       ],
+    //       title: 'heeeee',
+    //     },
+    //     list2: { list: ['Iure dolorum tempora'], title: 'hee' },
+    //     check2: {
+    //       list: [
+    //         {
+    //           value: 'Iure dolorum tempora',
+    //           checked: false,
+    //         },
+    //         {
+    //           value: 'Iure dolorum tempora',
+    //           checked: false,
+    //         },
+    //         {
+    //           value: 'Iure dolorum tempora',
+    //           checked: false,
+    //         },
+    //       ],
+    //       title: 'heeeee',
+    //     },
+    //     p2: 'Iure dolorum tempora, Iure dolorum tempora Iure dolorum tempora/Iure dolorum tempora.',
+    //   },
+    // },
+    // {
+    //   title: 'Iure dolorum tempora',
+    //   image: {
+    //     src: 'https://i.pinimg.com/originals/25/bb/42/25bb426851361120b7e35400195b1caa.jpg',
+    //     alt: 'dummy image',
+    //   },
+    //   details: {
+    //     p1: 'Iure dolorum tempora Iure dolorum tempora Iure dolorum tempora Iure dolorum tempora Iure dolorum tempora',
+    //     list1: { list: ['Iure dolorum tempora'], title: 'hee' },
+    //     check1: {
+    //       list: [
+    //         {
+    //           value: 'Iure dolorum tempora',
+    //           checked: false,
+    //         },
+    //         {
+    //           value: 'Iure dolorum tempora',
+    //           checked: false,
+    //         },
+    //         {
+    //           value: 'Iure dolorum tempora',
+    //           checked: false,
+    //         },
+    //       ],
+    //       title: 'heeeee',
+    //     },
+    //     list2: { list: ['Iure dolorum tempora'], title: 'hee' },
+    //     check2: {
+    //       list: [
+    //         {
+    //           value: 'Iure dolorum tempora',
+    //           checked: false,
+    //         },
+    //         {
+    //           value: 'Iure dolorum tempora',
+    //           checked: false,
+    //         },
+    //         {
+    //           value: 'Iure dolorum tempora',
+    //           checked: false,
+    //         },
+    //       ],
+    //       title: 'heeeee',
+    //     },
+    //     p2: 'Iure dolorum tempora, Iure dolorum tempora Iure dolorum tempora/Iure dolorum tempora.',
+    //   },
+    // },
+    // {
+    //   title: 'Iure dolorum tempora',
+    //   image: {
+    //     src: 'https://i.pinimg.com/originals/25/bb/42/25bb426851361120b7e35400195b1caa.jpg',
+    //     alt: 'dummy image',
+    //   },
+    //   details: {
+    //     p1: 'Iure dolorum tempora Iure dolorum tempora Iure dolorum tempora Iure dolorum tempora Iure dolorum tempora',
+    //     list1: { list: ['Iure dolorum tempora'], title: 'hee' },
+    //     check1: {
+    //       list: [
+    //         {
+    //           value: 'Iure dolorum tempora',
+    //           checked: false,
+    //         },
+    //         {
+    //           value: 'Iure dolorum tempora',
+    //           checked: false,
+    //         },
+    //         {
+    //           value: 'Iure dolorum tempora',
+    //           checked: false,
+    //         },
+    //       ],
+    //       title: 'heeeee',
+    //     },
+    //     list2: { list: ['Iure dolorum tempora'], title: 'hee' },
+    //     check2: {
+    //       list: [
+    //         {
+    //           value: 'Iure dolorum tempora',
+    //           checked: false,
+    //         },
+    //         {
+    //           value: 'Iure dolorum tempora',
+    //           checked: false,
+    //         },
+    //         {
+    //           value: 'Iure dolorum tempora',
+    //           checked: false,
+    //         },
+    //       ],
+    //       title: 'heeeee',
+    //     },
+    //     p2: 'Iure dolorum tempora, Iure dolorum tempora Iure dolorum tempora/Iure dolorum tempora.',
+    //   },
+    // },
+    // {
+    //   title: 'Iure dolorum tempora',
+    //   image: {
+    //     src: 'https://i.pinimg.com/originals/25/bb/42/25bb426851361120b7e35400195b1caa.jpg',
+    //     alt: 'dummy image',
+    //   },
+    //   details: {
+    //     p1: 'Iure dolorum tempora Iure dolorum tempora Iure dolorum tempora Iure dolorum tempora Iure dolorum tempora',
+    //     list1: { list: ['Iure dolorum tempora'], title: 'hee' },
+    //     check1: {
+    //       list: [
+    //         {
+    //           value: 'Iure dolorum tempora',
+    //           checked: false,
+    //         },
+    //         {
+    //           value: 'Iure dolorum tempora',
+    //           checked: false,
+    //         },
+    //         {
+    //           value: 'Iure dolorum tempora',
+    //           checked: false,
+    //         },
+    //       ],
+    //       title: 'heeeee',
+    //     },
+    //     list2: { list: ['Iure dolorum tempora'], title: 'hee' },
+    //     check2: {
+    //       list: [
+    //         {
+    //           value: 'Iure dolorum tempora',
+    //           checked: false,
+    //         },
+    //         {
+    //           value: 'Iure dolorum tempora',
+    //           checked: false,
+    //         },
+    //         {
+    //           value: 'Iure dolorum tempora',
+    //           checked: false,
+    //         },
+    //       ],
+    //       title: 'heeeee',
+    //     },
+    //     p2: 'Iure dolorum tempora, Iure dolorum tempora Iure dolorum tempora/Iure dolorum tempora.',
+    //   },
+    // },
+    // {
+    //   title: 'Iure dolorum tempora',
+    //   image: {
+    //     src: 'https://i.pinimg.com/originals/25/bb/42/25bb426851361120b7e35400195b1caa.jpg',
+    //     alt: 'dummy image',
+    //   },
+    //   details: {
+    //     p1: 'Iure dolorum tempora Iure dolorum tempora Iure dolorum tempora Iure dolorum tempora Iure dolorum tempora',
+    //     list1: { list: ['Iure dolorum tempora'], title: 'hee' },
+    //     check1: {
+    //       list: [
+    //         {
+    //           value: 'Iure dolorum tempora',
+    //           checked: false,
+    //         },
+    //         {
+    //           value: 'Iure dolorum tempora',
+    //           checked: false,
+    //         },
+    //         {
+    //           value: 'Iure dolorum tempora',
+    //           checked: false,
+    //         },
+    //       ],
+    //       title: 'heeeee',
+    //     },
+    //     list2: { list: ['Iure dolorum tempora'], title: 'hee' },
+    //     check2: {
+    //       list: [
+    //         {
+    //           value: 'Iure dolorum tempora',
+    //           checked: false,
+    //         },
+    //         {
+    //           value: 'Iure dolorum tempora',
+    //           checked: false,
+    //         },
+    //         {
+    //           value: 'Iure dolorum tempora',
+    //           checked: false,
+    //         },
+    //       ],
+    //       title: 'heeeee',
+    //     },
+    //     p2: 'Iure dolorum tempora, Iure dolorum tempora Iure dolorum tempora/Iure dolorum tempora.',
+    //   },
+    // },
+    // {
+    //   title: 'Iure dolorum tempora',
+    //   image: {
+    //     src: 'https://i.pinimg.com/originals/25/bb/42/25bb426851361120b7e35400195b1caa.jpg',
+    //     alt: 'dummy image',
+    //   },
+    //   details: {
+    //     p1: 'Iure dolorum tempora Iure dolorum tempora Iure dolorum tempora Iure dolorum tempora Iure dolorum tempora',
+    //     list1: { list: ['Iure dolorum tempora'], title: 'hee' },
+    //     check1: {
+    //       list: [
+    //         {
+    //           value: 'Iure dolorum tempora',
+    //           checked: false,
+    //         },
+    //         {
+    //           value: 'Iure dolorum tempora',
+    //           checked: false,
+    //         },
+    //         {
+    //           value: 'Iure dolorum tempora',
+    //           checked: false,
+    //         },
+    //       ],
+    //       title: 'heeeee',
+    //     },
+    //     list2: { list: ['Iure dolorum tempora'], title: 'hee' },
+    //     check2: {
+    //       list: [
+    //         {
+    //           value: 'Iure dolorum tempora',
+    //           checked: false,
+    //         },
+    //         {
+    //           value: 'Iure dolorum tempora',
+    //           checked: false,
+    //         },
+    //         {
+    //           value: 'Iure dolorum tempora',
+    //           checked: false,
+    //         },
+    //       ],
+    //       title: 'heeeee',
+    //     },
+    //     p2: 'Iure dolorum tempora, Iure dolorum tempora Iure dolorum tempora/Iure dolorum tempora.',
+    //   },
+    // },
+    // {
+    //   title: 'Iure dolorum tempora',
+    //   image: {
+    //     src: 'https://i.pinimg.com/originals/25/bb/42/25bb426851361120b7e35400195b1caa.jpg',
+    //     alt: 'dummy image',
+    //   },
+    //   details: {
+    //     p1: 'Iure dolorum tempora Iure dolorum tempora Iure dolorum tempora Iure dolorum tempora Iure dolorum tempora',
+    //     list1: { list: ['Iure dolorum tempora'], title: 'hee' },
+    //     check1: {
+    //       list: [
+    //         {
+    //           value: 'Iure dolorum tempora',
+    //           checked: false,
+    //         },
+    //         {
+    //           value: 'Iure dolorum tempora',
+    //           checked: false,
+    //         },
+    //         {
+    //           value: 'Iure dolorum tempora',
+    //           checked: false,
+    //         },
+    //       ],
+    //       title: 'heeeee',
+    //     },
+    //     list2: { list: ['Iure dolorum tempora'], title: 'hee' },
+    //     check2: {
+    //       list: [
+    //         {
+    //           value: 'Iure dolorum tempora',
+    //           checked: false,
+    //         },
+    //         {
+    //           value: 'Iure dolorum tempora',
+    //           checked: false,
+    //         },
+    //         {
+    //           value: 'Iure dolorum tempora',
+    //           checked: false,
+    //         },
+    //       ],
+    //       title: 'heeeee',
+    //     },
+    //     p2: 'Iure dolorum tempora, Iure dolorum tempora Iure dolorum tempora/Iure dolorum tempora.',
+    //   },
+    // },
+    // {
+    //   title: 'Iure dolorum tempora',
+    //   image: {
+    //     src: 'https://i.pinimg.com/originals/25/bb/42/25bb426851361120b7e35400195b1caa.jpg',
+    //     alt: 'dummy image',
+    //   },
+    //   details: {
+    //     p1: 'Iure dolorum tempora Iure dolorum tempora Iure dolorum tempora Iure dolorum tempora Iure dolorum tempora',
+    //     list1: { list: ['Iure dolorum tempora'], title: 'hee' },
+    //     check1: {
+    //       list: [
+    //         {
+    //           value: 'Iure dolorum tempora',
+    //           checked: false,
+    //         },
+    //         {
+    //           value: 'Iure dolorum tempora',
+    //           checked: false,
+    //         },
+    //         {
+    //           value: 'Iure dolorum tempora',
+    //           checked: false,
+    //         },
+    //       ],
+    //       title: 'heeeee',
+    //     },
+    //     list2: { list: ['Iure dolorum tempora'], title: 'hee' },
+    //     check2: {
+    //       list: [
+    //         {
+    //           value: 'Iure dolorum tempora',
+    //           checked: false,
+    //         },
+    //         {
+    //           value: 'Iure dolorum tempora',
+    //           checked: false,
+    //         },
+    //         {
+    //           value: 'Iure dolorum tempora',
+    //           checked: false,
+    //         },
+    //       ],
+    //       title: 'heeeee',
+    //     },
+    //     p2: 'Iure dolorum tempora, Iure dolorum tempora Iure dolorum tempora/Iure dolorum tempora.',
+    //   },
+    // },
+    // {
+    //   title: 'Iure dolorum tempora',
+    //   image: {
+    //     src: 'https://i.pinimg.com/originals/25/bb/42/25bb426851361120b7e35400195b1caa.jpg',
+    //     alt: 'dummy image',
+    //   },
+    //   details: {
+    //     p1: 'Iure dolorum tempora Iure dolorum tempora Iure dolorum tempora Iure dolorum tempora Iure dolorum tempora',
+    //     list1: { list: ['Iure dolorum tempora'], title: 'hee' },
+    //     check1: {
+    //       list: [
+    //         {
+    //           value: 'Iure dolorum tempora',
+    //           checked: false,
+    //         },
+    //         {
+    //           value: 'Iure dolorum tempora',
+    //           checked: false,
+    //         },
+    //         {
+    //           value: 'Iure dolorum tempora',
+    //           checked: false,
+    //         },
+    //       ],
+    //       title: 'heeeee',
+    //     },
+    //     list2: { list: ['Iure dolorum tempora'], title: 'hee' },
+    //     check2: {
+    //       list: [
+    //         {
+    //           value: 'Iure dolorum tempora',
+    //           checked: false,
+    //         },
+    //         {
+    //           value: 'Iure dolorum tempora',
+    //           checked: false,
+    //         },
+    //         {
+    //           value: 'Iure dolorum tempora',
+    //           checked: false,
+    //         },
+    //       ],
+    //       title: 'heeeee',
+    //     },
+    //     p2: 'Iure dolorum tempora, Iure dolorum tempora Iure dolorum tempora/Iure dolorum tempora.',
+    //   },
+    // },
+    // {
+    //   title: 'Iure dolorum tempora',
+    //   image: {
+    //     src: 'https://i.pinimg.com/originals/25/bb/42/25bb426851361120b7e35400195b1caa.jpg',
+    //     alt: 'dummy image',
+    //   },
+    //   details: {
+    //     p1: 'Iure dolorum tempora Iure dolorum tempora Iure dolorum tempora Iure dolorum tempora Iure dolorum tempora',
+    //     list1: { list: ['Iure dolorum tempora'], title: 'hee' },
+    //     check1: {
+    //       list: [
+    //         {
+    //           value: 'Iure dolorum tempora',
+    //           checked: false,
+    //         },
+    //         {
+    //           value: 'Iure dolorum tempora',
+    //           checked: false,
+    //         },
+    //         {
+    //           value: 'Iure dolorum tempora',
+    //           checked: false,
+    //         },
+    //       ],
+    //       title: 'heeeee',
+    //     },
+    //     list2: { list: ['Iure dolorum tempora'], title: 'hee' },
+    //     check2: {
+    //       list: [
+    //         {
+    //           value: 'Iure dolorum tempora',
+    //           checked: false,
+    //         },
+    //         {
+    //           value: 'Iure dolorum tempora',
+    //           checked: false,
+    //         },
+    //         {
+    //           value: 'Iure dolorum tempora',
+    //           checked: false,
+    //         },
+    //       ],
+    //       title: 'heeeee',
+    //     },
+    //     p2: 'Iure dolorum tempora, Iure dolorum tempora Iure dolorum tempora/Iure dolorum tempora.',
+    //   },
+    // },
+    // {
+    //   title: 'Iure dolorum tempora',
+    //   image: {
+    //     src: 'https://i.pinimg.com/originals/25/bb/42/25bb426851361120b7e35400195b1caa.jpg',
+    //     alt: 'dummy image',
+    //   },
+    //   details: {
+    //     p1: 'Iure dolorum tempora Iure dolorum tempora Iure dolorum tempora Iure dolorum tempora Iure dolorum tempora',
+    //     list1: { list: ['Iure dolorum tempora'], title: 'hee' },
+    //     check1: {
+    //       list: [
+    //         {
+    //           value: 'Iure dolorum tempora',
+    //           checked: false,
+    //         },
+    //         {
+    //           value: 'Iure dolorum tempora',
+    //           checked: false,
+    //         },
+    //         {
+    //           value: 'Iure dolorum tempora',
+    //           checked: false,
+    //         },
+    //       ],
+    //       title: 'heeeee',
+    //     },
+    //     list2: { list: ['Iure dolorum tempora'], title: 'hee' },
+    //     check2: {
+    //       list: [
+    //         {
+    //           value: 'Iure dolorum tempora',
+    //           checked: false,
+    //         },
+    //         {
+    //           value: 'Iure dolorum tempora',
+    //           checked: false,
+    //         },
+    //         {
+    //           value: 'Iure dolorum tempora',
+    //           checked: false,
+    //         },
+    //       ],
+    //       title: 'heeeee',
+    //     },
+    //     p2: 'Iure dolorum tempora, Iure dolorum tempora Iure dolorum tempora/Iure dolorum tempora.',
+    //   },
+    // },
+    // {
+    //   title: 'Iure dolorum tempora',
+    //   image: {
+    //     src: 'https://i.pinimg.com/originals/25/bb/42/25bb426851361120b7e35400195b1caa.jpg',
+    //     alt: 'dummy image',
+    //   },
+    //   details: {
+    //     p1: 'Iure dolorum tempora Iure dolorum tempora Iure dolorum tempora Iure dolorum tempora Iure dolorum tempora',
+    //     list1: { list: ['Iure dolorum tempora'], title: 'hee' },
+    //     check1: {
+    //       list: [
+    //         {
+    //           value: 'Iure dolorum tempora',
+    //           checked: false,
+    //         },
+    //         {
+    //           value: 'Iure dolorum tempora',
+    //           checked: false,
+    //         },
+    //         {
+    //           value: 'Iure dolorum tempora',
+    //           checked: false,
+    //         },
+    //       ],
+    //       title: 'heeeee',
+    //     },
+    //     list2: { list: ['Iure dolorum tempora'], title: 'hee' },
+    //     check2: {
+    //       list: [
+    //         {
+    //           value: 'Iure dolorum tempora',
+    //           checked: false,
+    //         },
+    //         {
+    //           value: 'Iure dolorum tempora',
+    //           checked: false,
+    //         },
+    //         {
+    //           value: 'Iure dolorum tempora',
+    //           checked: false,
+    //         },
+    //       ],
+    //       title: 'heeeee',
+    //     },
+    //     p2: 'Iure dolorum tempora, Iure dolorum tempora Iure dolorum tempora/Iure dolorum tempora.',
+    //   },
+    // },
   ],
 };
 

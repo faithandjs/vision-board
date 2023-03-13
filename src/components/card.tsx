@@ -99,12 +99,12 @@ export default function Card({
   return (
     <div
       className={
-        'flip-card m-5 lg:m-7 hover:cursor-pointer ' +
+        'flip-card m-5 lg:m-7 h-max ' +
         ((active === id || flip_all) && !vision_board ? ' active ' : ' ')
       }>
       <div className='child relative'>
         <div
-          className='front relative  md:w-[300px] md:h-[500px] sm:w-[200px] sm:h-[333px] w-[300px] h-[500px]  rounded-lg  overflow-hidden flex items-center justify-center '
+          className='front  hover:cursor-pointer relative  md:w-[300px] md:h-[500px] sm:w-[200px] sm:h-[333px] w-[300px] h-[500px]  rounded-lg  overflow-hidden flex items-center justify-center '
           onClick={() => {
             !flip_all && setActive((p) => (p === id ? -1 : id));
           }}>
@@ -127,22 +127,29 @@ export default function Card({
             </div>
             <div
               className='py-4 px-4 overflow-y-auto  h-full details'
-              style={{ height: 'calc(100% - 100px)' }}>
-              <div className=' h-full font-alexander text-base r'>
+              style={{ height: 'calc(100% - 90px)' }}>
+              <div className=' h-full font-alexander text-base'>
                 {Object.entries(details).map((item, key) => {
                   return <div key={key}>{getChild(item)}</div>;
                 })}
               </div>
             </div>
           </div>
-          {/* TURN LOWER PART INTO A RED BAR THAT IS A CLICKABLE BUTTON TE HE HE */}
-          <IoClose
-            size={20}
-            className=' absolute bottom-2 right-3 block  hover:scale-125 transition-[transform] duration-200  z-[1] text-[#d0312d] '
+
+          <button
+            className={
+              ' hover:cursor-pointer absolute left-0 right-0 bottom-0  h-8 flex justify-center items-center  z-[1] text-white transition-all duration-200 delay-200 ' +
+              (flip_all ? 'bg-gray-400 ' : 'bg-[#d0312d]')
+            }
             onClick={() => {
               !flip_all && setActive((p) => (p === id ? -1 : id));
-            }}
-          />{' '}
+            }}>
+            {' '}
+            <IoClose
+              size={24}
+              // className='hover:scale-125 transition-[transform] duration-20'
+            />
+          </button>
         </div>
       </div>
     </div>

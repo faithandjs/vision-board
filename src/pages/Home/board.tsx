@@ -21,7 +21,7 @@ export default function Board() {
   const { board } = useAuthCtx();
   const [active, setActive] = useState(-1);
   const { vision_board } = states;
-  const { data, theme } = details2;
+  const { data, theme } = board;
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -58,7 +58,7 @@ export default function Board() {
         </div>
 
         {/* cards */}
-        {data && (
+        {board && (
           <Formik initialValues={{ data: board.data }} onSubmit={() => {}}>
             {({ values, setFieldValue }) => {
               return (
@@ -81,7 +81,7 @@ export default function Board() {
         )}
 
         {/* grid */}
-        {data && (
+        {board && (
           <div
             className={
               'grid transition-[transform] duration-700 absolute inset-0 w-full h-screen  brightness-75 grid-' +

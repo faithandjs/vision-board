@@ -17,6 +17,7 @@ interface TextInputInterface {
   value?: any;
   disabled?: boolean;
   boxClass?: string;
+  inline?: boolean;
 }
 
 interface visionProps {
