@@ -72,7 +72,8 @@ export default function MenuView() {
       <Menu
         shadow='md'
         width={150}
-        transition='slide-up'
+        // transition='slide-up'
+        transitionProps={{ transition: 'slide-up', duration: 150 }}
         position='bottom'
         styles={{
           dropdown: {
