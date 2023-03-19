@@ -4,6 +4,7 @@ import { Modal, Loader } from '@mantine/core';
 import {
   createUserWithEmailAndPassword,
   GoogleAuthProvider,
+  updateProfile,
   signInWithPopup,
   signInWithRedirect,
 } from 'firebase/auth';
@@ -19,9 +20,21 @@ export default function Signup() {
   const [submitting, setIsSubmitting] = useState(false);
   const [opened, setOpened] = useState(true);
 
-  const signup = ({ email, password }: authProp) => {
+  const signup = ({ email, password, displayName }: authProp) => {
     setIsSubmitting(true);
     createUserWithEmailAndPassword(auth, email, password)
+      .then((res) => {
+        updateProfile(res.user, {
+          displayName,
+          // photoURL: 'https://example.com/jane-q-user/profile.jpg',
+        })
+          .then((res) => {
+            console.log(res);
+          })
+          .catch((error) => {
+            console.log('name err', error);
+          });
+      })
       .catch((error) => {
         console.log(error);
       })
@@ -50,6 +63,7 @@ export default function Signup() {
           <div>
             <Formik
               initialValues={{
+                displayName: '',
                 email: '',
                 password: '',
                 confirm_password: '',
@@ -59,6 +73,14 @@ export default function Signup() {
                 signup(values);
               }}>
               <Form>
+                <Input
+                  label='Name'
+                  name='displayName'
+                  type='text'
+                  placeholder='Enter your name'
+                  id='name'
+                  required
+                />
                 <Input
                   label='Email'
                   name='email'
@@ -97,12 +119,20 @@ export default function Signup() {
                     type='submit'
                     disabled={submitting}
                     className={
-                      'bg-main text-white px-6 py-2 rounded-md border border-transparent hover:border-main hover:bg-transparent hover:text-main transition-all duration-200 ' +
+                      'bg-main h-9 w-28 text-white px-6 py-2 rounded-md border border-transparent   transition-all duration-200 ' +
                       (submitting
                         ? 'hover:cursor-not-allowed'
-                        : 'hover:cursor-pointer')
+                        : 'hover:cursor-pointer hover:border-main hover:text-main hover:bg-transparent ')
                     }>
-                    {submitting ? <Loader /> : 'Sign up!'}
+                    {submitting ? (
+                      <Loader
+                        color='dark'
+                        variant='dots'
+                        className='flex auto w-full'
+                      />
+                    ) : (
+                      'Sign up!'
+                    )}
                   </button>
                 </div>
               </Form>

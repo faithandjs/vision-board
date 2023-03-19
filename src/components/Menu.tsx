@@ -14,16 +14,26 @@ import { useNavigate } from 'react-router-dom';
 import { useThemeCtx } from '../context/themeCtx';
 import { useToggleCtx } from '../context/ToggleCtx';
 import { useAuthCtx } from '../context/AuthCtx';
+import { test } from '../data/data';
 
 export default function MenuView() {
   const auth = getAuth();
   const navigate = useNavigate();
-  const { currentUser } = useAuthCtx();
+  const { currentUser, setBoard } = useAuthCtx();
   const { setTheme, theme } = useThemeCtx();
   const { states, setting } = useToggleCtx();
 
   const [opened, setOpened] = useState(true);
   const VB_toggle = useRef<HTMLInputElement>(null);
+
+  const redirect = (path: string) => {
+    if (currentUser) {
+      navigate(`/${path}`);
+    } else {
+      //toast login first
+      navigate('/auth/login');
+    }
+  };
 
   return (
     <div className='pr-10 pb-6'>
@@ -86,7 +96,7 @@ export default function MenuView() {
           <Menu.Item
             icon={<Edit2 size='12' variant='Outline' />}
             onClick={() => {
-              navigate('/edit-board');
+              redirect('edit-board');
             }}>
             Edit Board
           </Menu.Item>
@@ -94,7 +104,7 @@ export default function MenuView() {
           <Menu.Item
             icon={<Setting2 size='12' variant='Outline' />}
             onClick={() => {
-              navigate('/settings');
+              redirect('settings');
             }}>
             Settings
           </Menu.Item>
@@ -112,6 +122,7 @@ export default function MenuView() {
                 signOut(auth)
                   .then(() => {
                     navigate('/');
+                    setBoard(test);
                   })
                   .catch((error) => {
                     console.log('sign out failed', error);

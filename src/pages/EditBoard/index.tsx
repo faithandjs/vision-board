@@ -1,238 +1,252 @@
 import React, { useState } from 'react';
-import { Loader, Modal } from '@mantine/core';
+import { Loader } from '@mantine/core';
 import { Form, Formik } from 'formik';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
-import { Input } from '../../components';
+import { FormInput, Menu } from '../../components';
 import { Add, Minus } from 'iconsax-react';
-export const initialBoard = {
-  theme: '',
-  data: [
-    {
-      title: '',
-      image: {
-        src: '',
-        alt: '',
-      },
-      details: {
-        p1: '',
-        list1: { list: ['abc1'], title: '' },
-        p2: '',
-        check1: {
-          list: [
-            {
-              value: '',
-              checked: false,
-            },
-          ],
-          title: '',
-        },
-      },
-    },
-  ],
-};
+import { useAuthCtx } from '../../context/AuthCtx';
+import { database } from '../../data/firebase';
+
 export default function Edit() {
+  const { board } = useAuthCtx();
   const navigate = useNavigate();
+  const { currentUser } = useAuthCtx();
   const [submitting, setIsSubmitting] = useState(false);
 
-  const [opened, setOpened] = useState(true);
-
   return (
-    <Modal
-      opened={opened}
-      onClose={() => {
-        setOpened(false);
-        navigate('/');
-      }}
-      title='Edit Board'
-      centered
-      styles={{
-        title: {
-          fontWeight: 500,
-          fontSize: '1.3rem',
-        },
-        modal: {
-          width: '90vh',
-          height: '85vh',
-        },
-      }}>
-      <div className='p-4 pt-5'>
-        <Formik
-          initialValues={initialBoard}
-          // validationSchema={loginVal}
-          onSubmit={(values) => {
-            console.log(values);
-          }}>
-          {({ values, setFieldValue }) => {
-            const getFields = (props: any[], arrayId: number) => {
-              const object: { [key: string]: any[] } = {
-                [props[0]]: props.slice(1),
-              };
-              const key = Object.keys(object)[0];
-              const str = key.split(/\d+/)[0];
-              const base = `data[${arrayId}].details.`;
-              switch (str) {
-                case 'p':
+    <div className='p-4 pt-5'>
+      <Formik
+        initialValues={board}
+        // validationSchema={loginVal}
+        onSubmit={(values) => {
+          console.log(values);
+          // set(ref(database, 'users/' + currentUser?.uid), values)
+          //   .then((res) => console.log('res', res))
+          //   .catch((e) => console.log(e));
+        }}>
+        {({ values, setFieldValue }) => {
+          return (
+            <Form>
+              <div className='flex items-center'>
+                <div
+                  className={
+                    'z-20 relative  transition-[transform] duration-700 py-4  flex w-full flex-col text-center '
+                  }>
+                  <h1 className={'font-deraga font-thin  text-5xl '}>
+                    <label htmlFor=''>
+                      <input type='text' name='title' id='' />
+                    </label>
+                  </h1>
+                  <p className={'font-alexander font-medium text-xl pb-4  '}>
+                    <label htmlFor=''>
+                      <input type='text' name='theme' id='' />
+                    </label>
+                  </p>
+                </div>
+                <Menu />
+              </div>
+              <div className='overflow-y-auto  flex justify-evenly child:shrink-0 flex-wrap '>
+                {values.data.map((item, key) => {
+                  const base = `data[${key}]`;
+                  const img = values.data[key].image.src;
+                  // console.log(item.p);
                   return (
-                    <div className='flex w-full items-center mb-7'>
-                      <label
-                        htmlFor={arrayId + '_' + key}
-                        className='whitespace-nowrap pr-2'>
-                        paragraph {key.charAt(key.length - 1)}
-                      </label>
-                      <textarea
-                        onChange={(e) =>
-                          setFieldValue(`${base}${key}`, e.target.value)
-                        }
-                        name={`${base}${key}`}
-                        id={arrayId + '_' + key}
-                        required
-                        className={
-                          'block resize-none w-full py-2 border text-[#1d1d1d] bg-gray-50  text-base rounded-lg px-3 pr-6 focus:outline-none focus:ring-1 focus:ring-pink appearance-none '
-                        }
-                      />
-                    </div>
-                  );
-                case 'list':
-                  return (
-                    <div className='flex items-start'>
-                      <h4>List</h4>
-                      <div>
-                        <Input
-                          name={`${base}${key}.title`}
+                    <div className='m-5 lg:m-7 border-gray-500 border  sm:w-[300px] sm:h-[500px]  md:w-[400px] md:h-[600px]  rounded-lg  overflow-hidden'>
+                      <div className='relative w-full flex justify-end py-2'>
+                        <FormInput
+                          name={`${base}.title`}
                           type='text'
-                          placeholder='list title'
-                          id={arrayId + '_' + key}
+                          placeholder='title'
+                          id={'title' + key}
+                          // label='title'
                           required
+                          inline
+                          boxClass='!m-0'
+                          class=' text-xl text-center  '
+                          // style='dashes'
                         />
-                        <ul>
-                          <Input
-                            name={`${base}${key}.list[0]`}
-                            type='text'
-                            placeholder='list item'
-                            id={arrayId + '_' + key}
-                            required
-                          />
-                        </ul>{' '}
+
+                        {/* <div className='relative child:absolute w-8 h-full flex items-center mr-3 child:transition-all child:duration-200 text-whte hover:cursor-pointer'>
+                          <Add size='32' />
+                          <Minus size='32' />
+                        </div> */}
                       </div>
-                    </div>
-                  );
-                case 'check':
-                  return (
-                    <div className=''>
-                      <Input
-                        name={`${base}${key}.title`}
-                        type='text'
-                        placeholder='checkbox list title'
-                        id={arrayId + '_' + key}
-                        required
-                      />
-                      <ul>
-                        <Input
-                          name={`${base}${key}.list[0].value`}
-                          type='text'
-                          placeholder='checkbox item'
-                          id={arrayId + '_' + key}
-                          required
-                        />
-                      </ul>
-                    </div>
-                  );
-
-                default:
-                  return <></>;
-              }
-            };
-            return (
-              <Form>
-                <div className='overflow-y-auto h-[65vh]'>
-                  <Input
-                    name='theme'
-                    type='text'
-                    placeholder='theme'
-                    id='theme'
-                    label='theme'
-                    required
-                    inline
-                  />
-
-                  {values.data.map((item, key) => {
-                    return (
-                      <div className='bg-gray-00 '>
-                        <div className='relative w-full h-12 bg-gray-s00 flex justify-end'>
-                          <input
-                            name={`data[${key}].title`}
-                            type='text'
-                            placeholder='title'
-                            id={'title' + key}
-                            className='absolute inset-0 bg-transparent  px-3  text-base outline-none  mr-10'
-                            required
-                            onChange={(e) =>
-                              setFieldValue(
-                                `data[${key}].title`,
-                                e.target.value
-                              )
-                            }
-                          />
-                          <div className='relative child:absolute w-8 h-full flex items-center mr-3 child:transition-all child:duration-200 text-whte hover:cursor-pointer'>
-                            <Add size='32' />
-                            <Minus size='32' />
+                      <div className='h-full pb-[70px] overflow-y-auto'>
+                        {/* IMAGE */}
+                        <div className=' flex w-full py-4'>
+                          <div className='w-24 h-24 shrink-0'>
+                            <img
+                              src={values.data[key].image.src}
+                              alt=''
+                              className='w-full h-full object-cover'
+                            />
+                          </div>
+                          <div className='child:m-0 w-full'>
+                            <FormInput
+                              name={`data[${key}].image.src`}
+                              type='text'
+                              placeholder='image source'
+                              id={'image.src' + key}
+                              required
+                              // label='Image source'
+                              // boxClass='m-0'
+                              inline
+                            />
+                            <FormInput
+                              name={`data[${key}].image.alt`}
+                              type='text'
+                              placeholder='image alt'
+                              id={'image.alt' + key}
+                              required
+                              // label='ALT text'
+                              // boxClass='m-0'
+                              inline
+                            />
                           </div>
                         </div>
-
-                        <div className='flex justify-between px-2 pt-2 '>
-                          <Input
-                            name={`data[${key}].image.src`}
+                        {/* <div className=''> */}
+                        {/* PARAGRAPH */}
+                        <div className='flex w-full items-center mb-7'>
+                          <FormInput
+                            name={`${base}.p`}
                             type='text'
-                            // placeholder='image source'
-                            id={'image.src' + key}
-                            required
-                            label='Image source'
-                            boxClass='mr-2'
-                            inline
-                          />
-
-                          <Input
-                            name={`data[${key}].image.alt`}
-                            type='text'
-                            // placeholder='image alt'
-                            id={'image.alt' + key}
-                            required
-                            label='ALT text'
-                            boxClass='ml-2'
+                            placeholder=' '
+                            id={'paragraph of card ' + key + 1}
+                            label='Text'
+                            boxClass='pt-5'
                             inline
                           />
                         </div>
-                        <div className='px-2'>
-                          {Object.entries(item.details).map((item, index) => {
-                            return (
-                              <div key={index}>{getFields(item, key)}</div>
-                            );
-                          })}
+                        {/* LIST */}
+                        <div className=' '>
+                          <h4 className=' '>LIST</h4>
+                          <div>
+                            <FormInput
+                              name={`${base}.list.title`}
+                              type='text'
+                              label='list title'
+                              placeholder=' '
+                              id={`title of list of card ${key + 1}`}
+                              // required
+                            />
+
+                            <div>
+                              {item.list?.list.map((item, id) => {
+                                return (
+                                  <FormInput
+                                    name={`${base}.list.list[${id}]`}
+                                    type='text'
+                                    placeholder='list item'
+                                    id={`item ${id + 1} of list of card ${
+                                      key + 1
+                                    }`}
+                                    // required
+                                  />
+                                );
+                              })}
+                              <FormInput
+                                name={`${base}.list.list[${
+                                  item.list?.list.length
+                                    ? item.list?.list.length
+                                    : 0
+                                }]`}
+                                type='text'
+                                placeholder='list item'
+                                id={`item ${
+                                  item.list?.list.length
+                                    ? item.list?.list.length + 1
+                                    : 1
+                                } of list of card ${key + 1}`}
+                                // required
+                              />
+                            </div>
+                          </div>
                         </div>
+                        {/* CHECK */}
+                        <div className=''>
+                          <h4>CHECKBOX LIST</h4>
+                          <div>
+                            <FormInput
+                              name={`${base}.check.title`}
+                              type='text'
+                              label='list title'
+                              placeholder=' '
+                              id={`title of checkbox list of card ${key + 1}`}
+                              // required
+                            />
+
+                            <div>
+                              {item.check?.list.map((item, id) => {
+                                return (
+                                  <FormInput
+                                    name={`${base}.check.list[${id}].value`}
+                                    type='text'
+                                    label={'list item ' + +id + 1}
+                                    placeholder=' '
+                                    id={`item ${
+                                      id + 1
+                                    } of checkbox list of card ${key + 1}`}
+                                    // required
+                                  />
+                                  // <label htmlFor=''>
+                                  //   <div className='relative w-full'>
+                                  //     <input
+                                  //       className={
+                                  //         'block w-full py-2 border text-[#1d1d1d] bg-gray-50  text-base rounded-lg px-3 pr-6 focus:outline-none focus:ring-1 focus:ring-pink appearance-none '
+                                  //       }
+                                  //       name={`${base}.check.list[${id}]`}
+                                  //       type='text'
+                                  //       placeholder='list item'
+                                  //       id={`item ${
+                                  //         id + 1
+                                  //       } of checkbox list of card ${key + 1}`}
+                                  //       // value={item.value}
+                                  //       // onChange={(e) => {
+                                  //       //   const obj = {
+                                  //       //     ...values.data[key].check?.list,
+                                  //       //     [e.target.value.trim()]: false,
+                                  //       //   };
+                                  //       //   console.log(obj);
+                                  //       //   setFieldValue(
+                                  //       //     `${base}.check.list`,
+                                  //       //     obj
+                                  //       //   );
+                                  //       // }}
+                                  //       // required
+                                  //     />
+                                  //   </div>
+                                  // </label>
+                                );
+                              })}
+                            </div>
+                          </div>
+                        </div>
+                        {/* </div> */}
                       </div>
-                    );
-                  })}
-                </div>
-                <div className='flex w-full justify-end'>
-                  <button
-                    type='submit'
-                    disabled={submitting}
-                    className={
-                      'bg-main text-white px-6 py-2 rounded-md border border-transparent hover:border-main hover:bg-transparent hover:text-main transition-all duration-200 ' +
-                      (submitting
-                        ? 'hover:cursor-not-allowed'
-                        : 'hover:cursor-pointer')
-                    }>
-                    {submitting ? <Loader /> : 'Go!'}
-                  </button>
-                </div>
-              </Form>
-            );
-          }}
-        </Formik>
-      </div>
-    </Modal>
+                    </div>
+                  );
+                })}
+              </div>
+              <div className='flex w-full justify-end'>
+                <button
+                  type='submit'
+                  disabled={submitting}
+                  className={
+                    'bg-main text-white px-6 py-2 rounded-md border border-transparent hover:border-main hover:bg-transparent hover:text-main transition-all duration-200 ' +
+                    (submitting
+                      ? 'hover:cursor-not-allowed'
+                      : 'hover:cursor-pointer')
+                  }>
+                  {submitting ? <Loader /> : 'Go!'}
+                </button>
+              </div>
+            </Form>
+          );
+        }}
+      </Formik>
+    </div>
+    // </Modal>
   );
 }
 

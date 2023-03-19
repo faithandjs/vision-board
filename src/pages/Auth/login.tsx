@@ -7,6 +7,7 @@ import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../../data/firebase';
 import { Input } from '../../components';
 import { loginVal } from './validation';
+import { notif } from '../../utils/functions';
 
 export default function Login() {
   const navigate = useNavigate();
@@ -16,10 +17,13 @@ export default function Login() {
 
   const login = ({ email, password }: authProp) => {
     setIsSubmitting(true);
-    signInWithEmailAndPassword(auth, email, password).catch((error) => {
-      // const e = error;
-      console.log(error);
-    });
+    signInWithEmailAndPassword(auth, email, password)
+      .then(() => {
+        notif();
+      })
+      .catch((error) => {
+        console.log(error);
+      });
     setIsSubmitting(false);
   };
 
@@ -81,12 +85,20 @@ export default function Login() {
                   type='submit'
                   disabled={submitting}
                   className={
-                    'bg-main text-white px-6 py-2 rounded-md border border-transparent hover:border-main hover:bg-transparent hover:text-main transition-all duration-200 ' +
+                    'bg-main h-9 w-28 text-white px-6 py-2 rounded-md border border-transparent   transition-all duration-200 ' +
                     (submitting
                       ? 'hover:cursor-not-allowed'
-                      : 'hover:cursor-pointer')
+                      : 'hover:cursor-pointer hover:border-main hover:text-main hover:bg-transparent ')
                   }>
-                  {submitting ? <Loader /> : '  Go!'}
+                  {submitting ? (
+                    <Loader
+                      color='dark'
+                      variant='dots'
+                      className='flex auto w-full'
+                    />
+                  ) : (
+                    'Go!'
+                  )}
                 </button>
               </div>
             </Form>

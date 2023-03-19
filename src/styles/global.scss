@@ -1,12 +1,38 @@
 ul {
   margin-left: 15px !important;
 }
-
-// .password {
-//   background: rgba($color: #000000, $alpha: 0.4);
-// }
-// @media screen and (max-width: 425px) {
-// }
+input:-webkit-autofill,
+input:-webkit-autofill:focus {
+  transition: background-color 600000s 0s, color 600000s 0s;
+}
+// edit board input
+.form-Input {
+  label {
+    line-height: 14px;
+    pointer-events: none;
+    transform-origin: 0 50%;
+    transition: transform 200ms, color 200ms;
+  }
+  input:focus ~ label,
+  input:not(:placeholder-shown) ~ label {
+    font-size: 1;
+    transform: translateY(-30px);
+    font-size: 0.9rem;
+  }
+  label {
+    transition: transform 200ms, color 200ms;
+  }
+  input:not(:placeholder-shown) ~ label {
+    color: #808097;
+  }
+  input:focus ~ label {
+    color: #dc2f55;
+  }
+  input:focus ~ .pocket,
+  input:not(:placeholder-shown) ~ .pocket {
+    transform: translateY(8px);
+  }
+}
 
 /* toggle */
 .toggle {

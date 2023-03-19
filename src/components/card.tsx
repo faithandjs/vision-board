@@ -1,100 +1,27 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { TbCircleCheck, TbCircleDashed } from 'react-icons/tb';
 import { IoClose } from 'react-icons/io5';
+import { ref, update } from 'firebase/database';
 
 import { useToggleCtx } from '../context/ToggleCtx';
-import { test } from '../data';
+import { database } from '../data/firebase';
+import { useAuthCtx } from '../context/AuthCtx';
 
 export default function Card({
   image,
-  details,
+  check,
+  list,
+  p,
   title,
   id,
   active,
   setActive,
   setFieldValue,
+  values,
 }: cardProps) {
   const { states } = useToggleCtx();
+  const { currentUser } = useAuthCtx();
   const { flip_all, vision_board } = states;
-
-  const getChild = (props: any[]) => {
-    const object: { [key: string]: any[] } = { [props[0]]: props.slice(1) };
-    const key = Object.keys(object)[0];
-    const dets = object[key][0];
-
-    const str = key.split(/\d+/)[0];
-    switch (str) {
-      case 'p':
-        return <p className='pb-3'>{dets}</p>;
-      case 'list':
-        return (
-          <div className='pb-3'>
-            {dets.title && <p className='font-bold text-lg'>{dets.title}</p>}
-            <ul className='list-[circle] '>
-              {dets.list.map((item: string, key: number) => {
-                return <li key={key}>{item}</li>;
-              })}
-            </ul>
-          </div>
-        );
-      case 'check':
-        return (
-          <div className='pb-3'>
-            {dets.title && <p className='font-bold text-lg'>{dets.title}</p>}
-            <ul className='list-none !ml-0'>
-              {dets.list.map(
-                (
-                  item: {
-                    value: string;
-                    checked: boolean;
-                  },
-                  index: number
-                ) => {
-                  const { checked, value } = item;
-                  const name = `data[${id}].details.${key}.list[${index}].checked`;
-                  return (
-                    <li className='flex items-center' key={index}>
-                      <span className={'relative block w-4 h-4  '}>
-                        <span className='child:absolute block w-4 h-4'>
-                          <TbCircleCheck
-                            color=' #00A300'
-                            className={`transition-all duration-700  ${
-                              checked ? 'opacity-100' : 'opacity-0 '
-                            }`}
-                          />
-                          <TbCircleDashed
-                            className={`transition-all duration-700  ${
-                              checked ? 'opacity-0 ' : 'opacity-100'
-                            }`}
-                          />
-                        </span>
-                        <input
-                          type='checkbox'
-                          name={name}
-                          id={value}
-                          value={value}
-                          onChange={(e) => {
-                            const { checked } = e.target;
-                            setFieldValue(name, checked);
-                          }}
-                          checked={checked}
-                          className='absolute inset-0 opacity-0 hover:cursor-pointer'
-                        />{' '}
-                      </span>
-                      <label htmlFor={value} className='capitalize pl-2'>
-                        {value}
-                      </label>
-                    </li>
-                  );
-                }
-              )}
-            </ul>{' '}
-          </div>
-        );
-      default:
-        return <></>;
-    }
-  };
 
   return (
     <div
@@ -129,14 +56,88 @@ export default function Card({
               className='py-4 px-4 overflow-y-auto  h-full details'
               style={{ height: 'calc(100% - 90px)' }}>
               <div className=' h-full font-alexander text-base'>
-                {Object.entries(details).map((item, key) => {
-                  return <div key={key}>{getChild(item)}</div>;
-                })}
+                {p ? <p className='pb-3'>{p}</p> : <></>}
+                {list ? (
+                  <div className='pb-3'>
+                    {list.title && (
+                      <p className='font-bold text-lg'>{list.title}</p>
+                    )}
+                    <ul className='list-[circle] '>
+                      {list.list.map((item: string, key: number) => {
+                        return <li key={key}>{item}</li>;
+                      })}
+                    </ul>
+                  </div>
+                ) : (
+                  <></>
+                )}
+                {check ? (
+                  <div className='pb-3'>
+                    {check.title && (
+                      <p className='font-bold text-lg'>{check.title}</p>
+                    )}
+                    <ul className='list-none !ml-0'>
+                      {check.list.map((item, index) => {
+                        const { checked, value } = item;
+                        const name = `data[${id}].check.list[${index}]`;
+                        return (
+                          <li className='flex items-center' key={index}>
+                            <span className={'relative block w-4 h-4  '}>
+                              <span className='child:absolute block w-4 h-4'>
+                                <TbCircleCheck
+                                  color=' #00A300'
+                                  className={`transition-all duration-700  ${
+                                    checked ? 'opacity-100' : 'opacity-0 '
+                                  }`}
+                                />
+                                <TbCircleDashed
+                                  className={`transition-all duration-700  ${
+                                    checked ? 'opacity-0 ' : 'opacity-100'
+                                  }`}
+                                />
+                              </span>
+                              <input
+                                type='checkbox'
+                                name={name + '.value'}
+                                id={value}
+                                value={value}
+                                onChange={(e) => {
+                                  const { checked } = e.target;
+                                  setFieldValue(`${name}.checked`, checked);
+                                  if (!currentUser) return;
+                                  const updates: any = {};
+                                  updates[
+                                    'users/' +
+                                      currentUser?.uid +
+                                      '/data/' +
+                                      id +
+                                      '/check/list/' +
+                                      index +
+                                      '/checked'
+                                  ] = checked;
+                                  return update(ref(database), updates);
+                                }}
+                                checked={checked}
+                                className='absolute inset-0 opacity-0 hover:cursor-pointer'
+                              />
+                            </span>
+                            <label htmlFor={value} className='capitalize pl-2'>
+                              {value}
+                            </label>
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  </div>
+                ) : (
+                  <></>
+                )}
               </div>
             </div>
           </div>
 
           <button
+            type='submit'
             className={
               ' hover:cursor-pointer absolute left-0 right-0 bottom-0  h-8 flex justify-center items-center  z-[1] text-white transition-all duration-200 delay-200 ' +
               (flip_all ? 'bg-gray-400 ' : 'bg-[#d0312d]')
@@ -144,7 +145,6 @@ export default function Card({
             onClick={() => {
               !flip_all && setActive((p) => (p === id ? -1 : id));
             }}>
-            {' '}
             <IoClose
               size={24}
               // className='hover:scale-125 transition-[transform] duration-20'

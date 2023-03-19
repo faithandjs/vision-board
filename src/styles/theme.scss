@@ -4,10 +4,12 @@
 
 html {
   body {
-    background-color: #eeeaf0;
-    color: #1d1d1d;
+    background-color: #1e1e1e;
+    // background-color: #eeeaf0;
+    // color: #1d1d1d;
+    // color: #e4e4e4;
     // text-[#9fa19c]
-    @apply text-[#54565b] dark:text-white;
+    @apply text-[#e4e4e4] dark:text-white;
   }
   &.dark {
     body {

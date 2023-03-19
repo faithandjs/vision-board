@@ -1,5 +1,6 @@
 import React from 'react';
 import { MantineProvider, Text } from '@mantine/core';
+import { NotificationsProvider } from '@mantine/notifications';
 
 import ToggleProvider from './ToggleCtx';
 import { AuthProvider } from './AuthCtx';
@@ -16,11 +17,13 @@ export default function ContextManager({
       withNormalizeCSS
       withGlobalStyles
       theme={{ colorScheme: theme ?? 'light' }}>
-      <ThemeProvider>
-        <AuthProvider>
-          <ToggleProvider>{children}</ToggleProvider>
-        </AuthProvider>
-      </ThemeProvider>
+      <NotificationsProvider>
+        <ThemeProvider>
+          <AuthProvider>
+            <ToggleProvider>{children}</ToggleProvider>
+          </AuthProvider>
+        </ThemeProvider>
+      </NotificationsProvider>
     </MantineProvider>
   );
 }

@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Outlet } from 'react-router-dom';
+import { Form, Formik } from 'formik';
 
-import Vision from '../../components/Vision';
 import Toggle from '../../components/Toggle';
 import { Menu } from '../../components';
-import { details, details2, test } from '../../data';
 
 import '../../styles/global.scss';
 import '../../styles/grid.scss';
@@ -14,15 +13,13 @@ import '../../styles/vision-board.scss';
 import { useToggleCtx } from '../../context/ToggleCtx';
 import { useAuthCtx } from '../../context/AuthCtx';
 import Card from '../../components/card';
-import { Form, Formik } from 'formik';
 
 export default function Board() {
   const { states } = useToggleCtx();
   const { board } = useAuthCtx();
   const [active, setActive] = useState(-1);
   const { vision_board } = states;
-  const { data, theme } = board;
-
+  // console.log(board.data);
   useEffect(() => {
     window.scrollTo(0, 0);
     if (vision_board) {
@@ -49,54 +46,67 @@ export default function Board() {
                 ? 'text-white   absolute inset-0 translate-y-[40vh]'
                 : '  delay-150 ')
             }>
-            <h1 className={'font-deraga font-thin  text-5xl '}>My 2023</h1>
+            <h1 className={'font-deraga font-thin  text-5xl '}>
+              {board.title}
+            </h1>
             <p className={'font-alexander font-medium text-xl pb-4  '}>
-              {theme}
+              {board.theme}
             </p>
           </div>
           <Menu />
         </div>
 
         {/* cards */}
-        {board && (
-          <Formik initialValues={{ data: board.data }} onSubmit={() => {}}>
-            {({ values, setFieldValue }) => {
-              return (
-                <Form>
-                  <div className='cards flex justify-center child:shrink-0 flex-wrap  transition-[transform] duration-700'>
-                    {values.data.map((item, key) => {
-                      return (
-                        <Card
-                          {...{ active, setActive, ...item, setFieldValue }}
-                          key={key}
-                          id={key}
-                        />
-                      );
-                    })}
-                  </div>
-                </Form>
-              );
-            }}
-          </Formik>
-        )}
-
+        <Formik
+          initialValues={{ data: board.data }}
+          onSubmit={() => {}}
+          enableReinitialize>
+          {({ values, setFieldValue, handleChange }) => {
+            return (
+              <Form>
+                <div className='cards flex justify-center child:shrink-0 flex-wrap  transition-[transform] duration-700'>
+                  {values.data.map((item, key) => {
+                    // console.log(item);
+                    return item ? (
+                      <Card
+                        {...{
+                          active,
+                          setActive,
+                          ...item,
+                          setFieldValue,
+                          handleChange,
+                          values,
+                        }}
+                        key={key}
+                        id={key}
+                      />
+                    ) : (
+                      <></>
+                    );
+                  })}
+                </div>
+              </Form>
+            );
+          }}
+        </Formik>
         {/* grid */}
-        {board && (
-          <div
-            className={
-              'grid transition-[transform] duration-700 absolute inset-0 w-full h-screen  brightness-75 grid-' +
-              data.length
-            }>
-            {data.map((item: any, key: number) => {
-              return (
-                <div
-                  key={key}
-                  className={`grid-item${key + 1}`}
-                  style={{ backgroundImage: `url(${item.image.src})` }}></div>
-              );
-            })}
-          </div>
-        )}
+        <div
+          className={
+            'grid transition-[transform] duration-700 absolute inset-0 w-full h-screen  brightness-75 grid-' +
+            board.data.length
+          }>
+          {board.data.map((item: any, key: number) => {
+            return item ? (
+              <div
+                key={key}
+                className={`grid-item${key + 1}`}
+                style={{ backgroundImage: `url(${item.image.src})` }}></div>
+            ) : (
+              <></>
+            );
+          })}
+        </div>
+
         <Outlet />
         <div className='fixed bottom-0 left-0 w-full flex justify-between px-5 pb-4 z-20'>
           <Toggle
