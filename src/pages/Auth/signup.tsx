@@ -13,6 +13,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { auth } from '../../data/firebase';
 import { Input } from '../../components';
 import { signupVal } from './validation';
+import { notif } from '../../utils/functions';
 
 export default function Signup() {
   const navigate = useNavigate();
@@ -26,12 +27,14 @@ export default function Signup() {
       .then((res) => {
         updateProfile(res.user, {
           displayName,
-          // photoURL: 'https://example.com/jane-q-user/profile.jpg',
         })
           .then((res) => {
             console.log(res);
+            notif('Successfully Signed up', 'success');
+            navigate('/');
           })
           .catch((error) => {
+            notif('Sign up unsuccessful ', 'error');
             console.log('name err', error);
           });
       })
@@ -42,15 +45,15 @@ export default function Signup() {
         setIsSubmitting(false);
       });
   };
-
+  const close = () => {
+    setOpened(false);
+    navigate('/');
+  };
   return (
     <>
       <Modal
         opened={opened}
-        onClose={() => {
-          setOpened(false);
-          navigate('/');
-        }}
+        onClose={close}
         title='Sign up'
         centered
         styles={{
@@ -71,6 +74,7 @@ export default function Signup() {
               validationSchema={signupVal}
               onSubmit={(values) => {
                 signup(values);
+                // close();
               }}>
               <Form>
                 <Input

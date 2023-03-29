@@ -19,14 +19,19 @@ export default function Login() {
     setIsSubmitting(true);
     signInWithEmailAndPassword(auth, email, password)
       .then(() => {
-        notif();
+        notif('Successful Login', 'success');
+        navigate('/');
       })
       .catch((error) => {
         console.log(error);
+        notif('Unsuccessful Login', 'error');
       });
     setIsSubmitting(false);
   };
-
+  // const close = () => {
+  //   setOpened(false);
+  //   navigate('/');
+  // };
   return (
     <div>
       <Modal

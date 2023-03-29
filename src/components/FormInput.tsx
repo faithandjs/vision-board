@@ -11,21 +11,28 @@ export default function FormInput(props: TextInputInterface) {
   return (
     <div className={'relative mb-7 w-full form-Input ' + props.boxClass}>
       <div className='relative w-full '>
+        {/* <span> */}
+        {props.num && (
+          <span className='pr-2 absolute bottom-[.56rem]'>{props.num}.</span>
+        )}
         <input
           type={props.type}
           id={props.id}
           className={
-            'block w-full py-2 text-base px-3 pr-6 outline-none border-b border-dashed focus:border-main appearance-none bg-transparent ' +
-            props.class
+            'block w-full py-2 text-base px-3  outline-none border-b border-dashed focus:border-main appearance-none bg-transparent ' +
+            props.class +
+            (props.num ? ' pl-4' : '')
           }
           placeholder={props.placeholder}
           {...field}
           disabled={props.disabled}
         />
+        {/* </span> */}
+
         {props.label ? (
           <label
             htmlFor={props.id}
-            className=' absolute bottom-[11px] left-1  w-full text-center'>
+            className=' absolute bottom-[11px] w-full pl-3 text-start text-sm '>
             {props.label}
           </label>
         ) : (

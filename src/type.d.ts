@@ -27,6 +27,7 @@ interface TextInputInterface {
   disabled?: boolean;
   boxClass?: string;
   inline?: boolean;
+  num?: number | false;
 }
 
 interface cardProps extends BoardType {

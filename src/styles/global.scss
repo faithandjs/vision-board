@@ -1,11 +1,32 @@
 ul {
   margin-left: 15px !important;
 }
+
 input:-webkit-autofill,
 input:-webkit-autofill:focus {
   transition: background-color 600000s 0s, color 600000s 0s;
 }
 // edit board input
+.heads {
+  label {
+    padding: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  input:focus ~ label,
+  input:not(:placeholder-shown) ~ label {
+    transform: translateY(-30px) translateX(-50%) !important;
+  }
+}
+.edit-card {
+  padding: 0 2rem;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(12, 12, 13, 0.37);
+  backdrop-filter: blur(6.5px);
+  -webkit-backdrop-filter: blur(6.5px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
 .form-Input {
   label {
     line-height: 14px;
@@ -15,10 +36,10 @@ input:-webkit-autofill:focus {
   }
   input:focus ~ label,
   input:not(:placeholder-shown) ~ label {
-    font-size: 1;
     transform: translateY(-30px);
     font-size: 0.9rem;
   }
+
   label {
     transition: transform 200ms, color 200ms;
   }

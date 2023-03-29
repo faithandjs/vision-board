@@ -15,7 +15,7 @@ export default function Edit() {
   const [submitting, setIsSubmitting] = useState(false);
 
   return (
-    <div className='p-4 pt-5'>
+    <div className='p-4 pt-5 '>
       <Formik
         initialValues={board}
         // validationSchema={loginVal}
@@ -31,28 +31,34 @@ export default function Edit() {
               <div className='flex items-center'>
                 <div
                   className={
-                    'z-20 relative  transition-[transform] duration-700 py-4  flex w-full flex-col text-center '
+                    'z-20 relative  transition-[transform] duration-700 py-4  flex w-full flex-col items-center text-center heads'
                   }>
-                  <h1 className={'font-deraga font-thin  text-5xl '}>
-                    <label htmlFor=''>
-                      <input type='text' name='title' id='' />
-                    </label>
-                  </h1>
-                  <p className={'font-alexander font-medium text-xl pb-4  '}>
-                    <label htmlFor=''>
-                      <input type='text' name='theme' id='' />
-                    </label>
-                  </p>
+                  <FormInput
+                    name='title'
+                    type='text'
+                    label='Title'
+                    placeholder=' '
+                    id='title'
+                    boxClass='w-72 '
+                  />
+                  <FormInput
+                    name='theme'
+                    type='text'
+                    label='theme'
+                    placeholder=' '
+                    id='theme'
+                    boxClass='w-80'
+                  />
                 </div>
                 <Menu />
               </div>
-              <div className='overflow-y-auto  flex justify-evenly child:shrink-0 flex-wrap '>
+              <div className='overflow-y-auto  flex justify-evenly child:shrink-0 flex-wrap  '>
                 {values.data.map((item, key) => {
                   const base = `data[${key}]`;
                   const img = values.data[key].image.src;
                   // console.log(item.p);
                   return (
-                    <div className='m-5 lg:m-7 border-gray-500 border  sm:w-[300px] sm:h-[500px]  md:w-[400px] md:h-[600px]  rounded-lg  overflow-hidden'>
+                    <div className='edit-card m-5 lg:m-7 border-gray-500 border  sm:w-[300px] sm:h-[500px]  md:w-[400px] md:h-[600px]  rounded-lg  overflow-hidden'>
                       <div className='relative w-full flex justify-end py-2'>
                         <FormInput
                           name={`${base}.title`}
@@ -107,7 +113,10 @@ export default function Edit() {
                         </div>
                         {/* <div className=''> */}
                         {/* PARAGRAPH */}
-                        <div className='flex w-full items-center mb-7'>
+                        <div className='py-6'>
+                          <h4 className='text-center font-extrabold pb-6 uppercase'>
+                            Paragraph
+                          </h4>
                           <FormInput
                             name={`${base}.p`}
                             type='text'
@@ -119,19 +128,28 @@ export default function Edit() {
                           />
                         </div>
                         {/* LIST */}
-                        <div className=' '>
-                          <h4 className=' '>LIST</h4>
+                        <div className='py-6 '>
+                          <h4 className='text-center font-extrabold pb-6'>
+                            LIST
+                          </h4>
                           <div>
                             <FormInput
                               name={`${base}.list.title`}
                               type='text'
-                              label='list title'
+                              label='Title'
                               placeholder=' '
                               id={`title of list of card ${key + 1}`}
                               // required
                             />
 
                             <div>
+                              <div className='text-center'>
+                                <button
+                                  className='font-light bg-main rounded-lg px-4 py-2 my-4'
+                                  type='button'>
+                                  add to list
+                                </button>
+                              </div>
                               {item.list?.list.map((item, id) => {
                                 return (
                                   <FormInput
@@ -141,11 +159,12 @@ export default function Edit() {
                                     id={`item ${id + 1} of list of card ${
                                       key + 1
                                     }`}
+                                    num={id + 1}
                                     // required
                                   />
                                 );
                               })}
-                              <FormInput
+                              {/* <FormInput
                                 name={`${base}.list.list[${
                                   item.list?.list.length
                                     ? item.list?.list.length
@@ -159,34 +178,43 @@ export default function Edit() {
                                     : 1
                                 } of list of card ${key + 1}`}
                                 // required
-                              />
+                              /> */}
                             </div>
                           </div>
                         </div>
                         {/* CHECK */}
-                        <div className=''>
-                          <h4>CHECKBOX LIST</h4>
+                        <div className='py-6 '>
+                          <h4 className='text-center font-extrabold pb-6'>
+                            CHECKBOX
+                          </h4>
                           <div>
                             <FormInput
                               name={`${base}.check.title`}
                               type='text'
-                              label='list title'
+                              label='Title'
                               placeholder=' '
                               id={`title of checkbox list of card ${key + 1}`}
                               // required
                             />
 
                             <div>
+                              <div className='text-center'>
+                                <button
+                                  className='font-light bg-main rounded-lg px-4 py-2 my-4'
+                                  type='button'>
+                                  add to list
+                                </button>
+                              </div>
                               {item.check?.list.map((item, id) => {
                                 return (
                                   <FormInput
                                     name={`${base}.check.list[${id}].value`}
                                     type='text'
-                                    label={'list item ' + +id + 1}
-                                    placeholder=' '
+                                    placeholder='checkbox item'
                                     id={`item ${
                                       id + 1
                                     } of checkbox list of card ${key + 1}`}
+                                    num={id + 1}
                                     // required
                                   />
                                   // <label htmlFor=''>
