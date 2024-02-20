@@ -78,34 +78,38 @@ export default function Edit() {
                           <Minus size='32' />
                         </div> */}
                       </div>
-                      <div className='h-full pb-[70px] overflow-y-auto'>
+                      <div className='h-full pb-[70px] overflow-y-auto mt-5'>
                         {/* IMAGE */}
                         <div className=' flex w-full py-4'>
-                          <div className='w-24 h-24 shrink-0'>
-                            <img
-                              src={values.data[key].image.src}
-                              alt=''
-                              className='w-full h-full object-cover'
-                            />
-                          </div>
-                          <div className='child:m-0 w-full'>
+                          {values.data[key].image.src && (
+                            <div className='w-24 h-32 shrink-0'>
+                              <img
+                                src={values.data[key].image.src}
+                                alt=''
+                                className='w-full h-full object-cover'
+                              />
+                            </div>
+                          )}
+                          <div className='child:m-0 w-full grid gap-8'>
                             <FormInput
                               name={`data[${key}].image.src`}
                               type='text'
-                              placeholder='image source'
+                              // placeholder='image source'
+                              placeholder=' '
                               id={'image.src' + key}
                               required
-                              // label='Image source'
+                              label='Image source'
                               // boxClass='m-0'
                               inline
                             />
                             <FormInput
                               name={`data[${key}].image.alt`}
                               type='text'
-                              placeholder='image alt'
+                              // placeholder='image alt'
+                              placeholder=' '
                               id={'image.alt' + key}
                               required
-                              // label='ALT text'
+                              label='ALT text'
                               // boxClass='m-0'
                               inline
                             />
